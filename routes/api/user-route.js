@@ -6,9 +6,9 @@ const { User } = require('../../models');
 router.post('/login', async (req, res) => {
   //find the user with the username
   try {
-    // const userData = await User.findOne({
-    //   where: { username: req.body.username },
-    // });
+    const userData = await User.findOne({
+      where: { username: req.body.username },
+    });
 
     //create a session
     req.session.save(() => {
