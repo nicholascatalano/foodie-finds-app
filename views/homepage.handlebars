@@ -5,5 +5,13 @@
 </head>
 <body>
     <h1>Welcome to the Homepage</h1>
+
+     {{#if logged_in}}
+        <form action="/logout" method="POST">
+            <button type="submit">Logout</button>
+        </form>
+    {{else}}
+        <p>Please <a href="/login">login</a> to go to the Homepage.</p>
+    {{/if}}
 </body>
 </html>
