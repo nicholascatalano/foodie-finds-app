@@ -24,3 +24,13 @@
   border-radius: 4px;
   box-sizing: border-box;
 }
+.submit-button {
+  background-color: #ffbf69;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  margin-top: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
