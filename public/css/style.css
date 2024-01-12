@@ -68,3 +68,13 @@
   display: inline;
   margin-right: 15px;
 }
+.logout-button {
+  background-color: #ffbf69;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
