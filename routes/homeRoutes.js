@@ -15,17 +15,17 @@ router.get('/', async (req, res) => {
   // } catch (err) {
   //   res.status(500).json(err);
   // }
-  res.render('homepage')
+  res.render('homepage');
 });
 
 //login page
 router.get('/login', (req, res) => {
   //if a session exists - redirect to the homepage
-  //   console.log(req.session);
-  //   if (req.session.logged_in) {
-  //     res.redirect('/');
-  //     return;
-  //   }
+
+  if (req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
   // render login page
   res.render('login');
 });
