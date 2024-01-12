@@ -43,3 +43,8 @@
   text-align: center;
   margin-top: 15px;
 }
+.signup-link a {
+  color: #ffbf69;
+  text-decoration: none;
+  font-weight: bold;
+}
