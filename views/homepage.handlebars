@@ -1,17 +1,27 @@
-<h1>Welcome to the Homepage</h1>
+<html>
+  <head>
+    <title>Homepage</title>
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+  <body>
+    <div class='homepage-container'>
+      <h1 class='homepage-title'>Welcome to the Homepage</h1>
 
-{{#if loggedIn}}
-  <ul>
-    <li><a href='/new'>Create New Post</a></li>
-    <li class='li-inline nav-item'><a
-        href='#'
-        class='btn'
-        id='logout'
-      >Logout</a></li>
-
-  </ul>
-{{else}}
-  <p>Please <a href='/login'>login</a> to go to access the page.</p>
-{{/if}}
-
-<script src='/js/logout.js'></script>
+      {{#if loggedIn}}
+        <ul class='nav-list'>
+          <li class='nav-item'><a href='/new' class='nav-link'>Create New Post</a></li>
+          <li class='nav-item'><a
+              href='#'
+              class='logout-button'
+              id='logout'
+            >Logout</a></li>
+        </ul>
+      {{else}}
+        <p class='login-redirect'>Please
+          <a href='/login'>login</a>
+          to go to access the page.</p>
+      {{/if}}
+    </div>
+    <script src='/js/logout.js'></script>
+  </body>
+</html>
