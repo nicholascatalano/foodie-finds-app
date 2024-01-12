@@ -51,3 +51,8 @@
 .signup-link a:hover {
   color: #e6a157;
 }
+.homepage-container {
+  text-align: center;
+  padding: 50px;
+  background-color: #cbf3f0;
+}
