@@ -11,6 +11,7 @@ router.get('/', async (req, res) => {
     // render on allPosts view
     res.render('homepage', {
       reviews,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     res.status(500).json(err);
