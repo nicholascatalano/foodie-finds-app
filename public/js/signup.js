@@ -11,7 +11,7 @@ const signupFormHandler = async (event) => {
   });
 
   if (response.ok) {
-    document.location.replace('/home'); // if user is able to signup, goes to homepage
+    document.location.replace('/'); // if user is able to signup, goes to homepage
   } else {
     alert('Failed to sign up!');
   }
