@@ -81,3 +81,15 @@
 .logout-button:hover {
   background-color: #adcfa6;
 }
+.login-redirect {
+  color: #2ec4b6;
+  font-size: 16px;
+}
+.login-redirect a {
+  color: #ffbf69;
+  text-decoration: none;
+  font-weight: bold;
+}
+.login-redirect a:hover {
+  color: #e6a157;
+}
