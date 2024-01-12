@@ -1,0 +1,30 @@
+[
+    {
+        "city": "New York",
+        "restaurant": "Elite Cafe",
+        "rating": 4.3,
+        "content": "Best kosher cafe in queens! I came for my niece birthday. The food was so delicious. Get the penne alla vodka!!!!  David assisted me in helping me choose an amazing dessert for the occasion. My family and I enjoyed very much and recommend this place to anyone who wants to come. Thank you elite cafe for a great experience.",
+        "user_id": 2
+    },
+    {
+        "city": "Miami Beach",
+        "restaurant": "Maxine's Bistro and Bar - American Restaurant in Miami Beach",
+        "rating": 4.5,
+        "content": "The food and mimosas were amazing! My fiancé and I decided to slip away for a few days and for brunch this is where we came and it did not disappoint. Nice music and even better customer service!  We'll definitely be returning for dinner.",
+        "user_id": 3
+    },
+    {
+        "city": "Lomita",
+        "restaurant": "NORMS Restaurant",
+        "rating": 4.2,
+        "content": "I enjoy grabbing breakfast at this location and have been a frequent customer for a few years now. Staff is always nice and accommodating to your needs. Food is yummy. Downside is when the restaurant is at full service. Understandably, your food will take a while as it gets cooked.",
+        "user_id": 2
+    },
+    {
+        "city": "Fullerton",
+        "restaurant": "Salt & Pepper Family Restaurant",
+        "rating": 4.4,
+        "content": "The foods kinda good and we like their environment. They have two separate places like loud and quiet places that we can choose. Also, the service is good and we are definitely back.",
+        "user_id": 1
+    }
+]
