@@ -48,3 +48,6 @@
   text-decoration: none;
   font-weight: bold;
 }
+.signup-link a:hover {
+  color: #e6a157;
+}
