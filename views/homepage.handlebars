@@ -1,9 +1,16 @@
 <h1>Welcome to the Homepage</h1>
 
 {{#if loggedIn}}
-  <form action='/logout' method='POST'>
-    <button type='submit'>Logout</button>
-  </form>
+  <ul>
+    <li class='li-inline nav-item'><a
+        href='#'
+        class='btn'
+        id='logout'
+      >Logout</a></li>
+
+  </ul>
 {{else}}
   <p>Please <a href='/login'>login</a> to go to access the page.</p>
 {{/if}}
+
+<script src='/js/logout.js'></script>
