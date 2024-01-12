@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { User, Review } = require('../models');
+const withAuth = require('../../utils/auth');
 
 // GET all reviews for homepage
-router.get('/', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
     const reviewData = await Review.findAll({
       include: [User],
@@ -41,7 +42,7 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
-router.get('/new', async (req, res) => {
+router.get('/new', withAuth, async (req, res) => {
   try {
     res.render('newReview', { layout: 'main' });
   } catch (err) {

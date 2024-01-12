@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const { Review } = require('../../models/');
+const withAuth = require('../../utils/auth');
 
 // POST route for creating a new post
-router.post('/', async (req, res) => {
+router.post('/', withAuth, async (req, res) => {
   try {
     const newReview = await Review.create({
       ...req.body,
