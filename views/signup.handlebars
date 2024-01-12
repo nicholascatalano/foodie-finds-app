@@ -1,20 +1,32 @@
-<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Sign Up</title>
-</head>
-<body>
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+  <body>
     <h1>Sign Up</h1>
 
-    <form action="/signup" id="signup" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" placeholder="username" required>
+    <form action='/signup' id='signup' method='POST'>
+      <label for='username'>Username:</label>
+      <input
+        type='text'
+        id='username'
+        name='username'
+        placeholder='username'
+        required
+      />
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="password" required>
+      <label for='password'>Password:</label>
+      <input
+        type='password'
+        id='password'
+        name='password'
+        placeholder='password'
+        required
+      />
 
-        <button type="submit">Sign Up</button>
+      <button type='submit'>Sign Up</button>
     </form>
-</body>
+  </body>
 </html>
-<script src="/js/signup.js"></script>
+<script src='/js/signup.js'></script>
