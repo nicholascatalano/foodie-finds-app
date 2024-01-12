@@ -1,17 +1,16 @@
-<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Homepage</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Welcome to the Homepage</h1>
 
-     {{#if logged_in}}
-        <form action="/logout" method="POST">
-            <button type="submit">Logout</button>
-        </form>
+    {{#if loggedIn}}
+      <form action='/logout' method='POST'>
+        <button type='submit'>Logout</button>
+      </form>
     {{else}}
-        <p>Please <a href="/login">login</a> to go to the Homepage.</p>
+      <p>Please <a href='/login'>login</a> to go to access the page.</p>
     {{/if}}
-</body>
+  </body>
 </html>
