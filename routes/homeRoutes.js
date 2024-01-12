@@ -41,4 +41,12 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+router.get('/new', async (req, res) => {
+  try {
+    res.render('newReview', { layout: 'main' });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
