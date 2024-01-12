@@ -3,19 +3,18 @@ const { User } = require('../models');
 
 // GET all reviews for homepage
 router.get('/', async (req, res) => {
-  // try {
-  //   const reviewData = await Review.findAll({
-  //     include: [User],
-  //   });
-  //   const reviews = reviewData.map((review) => review.get({ plain: true }));
-  //   // render on allPosts view
-  //   res.render('homepage', {
-  //     reviews,
-  //   });
-  // } catch (err) {
-  //   res.status(500).json(err);
-  // }
-  res.render('homepage');
+  try {
+    const reviewData = await Review.findAll({
+      include: [User],
+    });
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
+    // render on allPosts view
+    res.render('homepage', {
+      reviews,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 //login page
