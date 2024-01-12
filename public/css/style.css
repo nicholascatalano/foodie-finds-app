@@ -13,3 +13,14 @@
   text-align: center;
   color: #2ec4b6;
 }
+.form-group {
+  margin-bottom: 15px;
+}
+.form-input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
