@@ -93,3 +93,10 @@
 .login-redirect a:hover {
   color: #e6a157;
 }
+.signup-container {
+  background-color: #cbf3f0;
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
