@@ -10,3 +10,10 @@ const logout = async () => {
     alert(response.statusText);
   }
 };
+
+document.addEventListener('DOMContentLoaded', () => {
+  const logoutBtn = document.querySelector('#logout');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', logout);
+  }
+});
