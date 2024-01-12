@@ -38,3 +38,8 @@
 .submit-button:hover {
   background-color: #adcfa6;
 }
+
+.signup-link {
+  text-align: center;
+  margin-top: 15px;
+}
