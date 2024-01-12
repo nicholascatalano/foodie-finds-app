@@ -78,3 +78,6 @@
   cursor: pointer;
   text-decoration: none;
 }
+.logout-button:hover {
+  background-color: #adcfa6;
+}
