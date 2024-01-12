@@ -1,19 +1,21 @@
-<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Login</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Login</h1>
-    
-    <form action="/login" method="POST">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-        
-        <button type="submit">Login</button>
+
+    <form action='/login' id='login' method='POST'>
+      <label for='username'>Username:</label>
+      <input type='text' id='username' name='username' required />
+
+      <label for='password'>Password:</label>
+      <input type='password' id='password' name='password' required />
+
+      <button type='submit'>Login</button>
+      <a href='/signup' type='button'>Don't have an account? Signup!</a>
     </form>
-</body>
+  </body>
 </html>
+
+<script src='/js/login.js'></script>
