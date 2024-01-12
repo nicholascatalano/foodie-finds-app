@@ -34,3 +34,7 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+.submit-button:hover {
+  background-color: #adcfa6;
+}
