@@ -6,12 +6,10 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 .login-form {
-  background-color: #bec58b;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
-.login-form h1 {
-  color: #2ec4b6;
+.login-title {
   text-align: center;
+  color: #2ec4b6;
 }
