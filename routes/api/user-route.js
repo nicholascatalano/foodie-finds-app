@@ -28,6 +28,13 @@ router.post('/login', async (req, res) => {
       where: { username: req.body.username },
     });
 
+    if (!userData) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect user or password, please try again' });
+      return;
+    }
+
     //create a session
     req.session.save(() => {
       req.session.user_id = userData.id;
