@@ -51,3 +51,76 @@
 .signup-link a:hover {
   color: #e6a157;
 }
+.homepage-container {
+  text-align: center;
+  padding: 50px;
+  background-color: #cbf3f0;
+}
+.homepage-title {
+  color: #2ec4b6;
+  margin-bottom: 20px;
+}
+.nav-list {
+  list-style: none;
+  padding: 0;
+}
+.nav-item {
+  display: inline;
+  margin-right: 15px;
+}
+.nav-link,
+.logout-button {
+  background-color: #ffbf69;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.nav-link:hover,
+.logout-button:hover {
+  background-color: #adcfa6;
+}
+.login-redirect {
+  color: #2ec4b6;
+  font-size: 16px;
+}
+.login-redirect a {
+  color: #ffbf69;
+  text-decoration: none;
+  font-weight: bold;
+}
+.login-redirect a:hover {
+  color: #e6a157;
+}
+.signup-container {
+  background-color: #cbf3f0;
+  width: 300px;
+  margin: 100px auto;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.signup-form {
+  display: flex;
+  flex-direction: column;
+}
+.signup-title {
+  text-align: center;
+  color: #2ec4b6;
+}
+.login-link {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.login-link a {
+  color: #ffbf69;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  color: #e6a157;
+}
