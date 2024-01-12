@@ -35,6 +35,15 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    const password = await userData.checkPassword(req.body.password);
+
+    if (!password) {
+      res
+        .status(400)
+        .json({ message: 'Incorrect email or password, please try again' });
+      return;
+    }
+
     //create a session
     req.session.save(() => {
       req.session.user_id = userData.id;
