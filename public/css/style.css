@@ -68,6 +68,7 @@
   display: inline;
   margin-right: 15px;
 }
+.nav-link,
 .logout-button {
   background-color: #ffbf69;
   color: white;
@@ -78,6 +79,7 @@
   cursor: pointer;
   text-decoration: none;
 }
+.nav-link:hover,
 .logout-button:hover {
   background-color: #adcfa6;
 }
