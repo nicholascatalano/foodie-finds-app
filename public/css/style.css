@@ -60,3 +60,11 @@
   color: #2ec4b6;
   margin-bottom: 20px;
 }
+.nav-list {
+  list-style: none;
+  padding: 0;
+}
+.nav-item {
+  display: inline;
+  margin-right: 15px;
+}
