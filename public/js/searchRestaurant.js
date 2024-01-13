@@ -1,6 +1,6 @@
 // the user inputs the name of the restaurant
 // option to add the city as well
-async function fetchRestaurantDate() {
+async function fetchRestaurantData() {
   const queryForm = document.querySelector('#review-restaurant').value.trim(); //from the new review form
   const cityForm = document.querySelector('#review-city').value.trim(); //from review form
 
@@ -26,7 +26,5 @@ async function fetchRestaurantDate() {
   );
 
   //   restaurantDetails will have name, address_obj.city, cuisine, website, price_level, subcategories
-  //      can make a post request to create a restaurant so we can render it
+  //   needs a fetch request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
 }
-
-fetchRestaurantDate();
