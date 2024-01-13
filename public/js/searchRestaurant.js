@@ -19,6 +19,7 @@ async function fetchRestaurantDate() {
   const restaurantData = response.data[0];
   const locationId = restaurantData.location_id; //this will be used to get the restaurant details with a second API search
 
+  //get restaurant details using the locationId and save them in an object
   const restaurantDetails = await fetch(
     `https://api.content.tripadvisor.com/api/v1/location/${locationId}/details?language=en&currency=USD&key=${apiKey}`,
     options
