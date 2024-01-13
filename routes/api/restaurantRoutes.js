@@ -3,6 +3,19 @@ const { User, Review, Restaurant } = require('../../models');
 
 // endpoint -> api/restaurants
 
+//GET - all restaurants
+router.get('/', async (req, res) => {
+  try {
+    const allRestaurants = await Restaurant.findAll();
+    const restaurants = allRestaurants.map((restaurant) =>
+      restaurant.get({ plain: true })
+    );
+    res.status(200).json(restaurants);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 //POST request to create a new restaurant from the review form
 router.post('/', async (req, res) => {
   try {
@@ -17,7 +30,7 @@ router.post('/', async (req, res) => {
 });
 
 //GET route for one restaurant
-router.get('/id', async (req, res) => {
+router.get('/:location_id', async (req, res) => {
   try {
     const restaurant = await Restaurant.findOne({
       where: {

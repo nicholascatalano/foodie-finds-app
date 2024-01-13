@@ -1,11 +1,16 @@
-// the user inputs the name of the restaurant
-// option to add the city as well
-async function fetchRestaurantData() {
-  const queryForm = document.querySelector('#review-restaurant').value.trim(); //from the new review form
-  const cityForm = document.querySelector('#review-city').value.trim(); //from review form
+//first check if the restaurant is in the db
+//using the name and city
+const isRestaurantInDb = (restaurantName, city) => {
 
+}
+
+
+//fetchRestaurantData uses an api KEY 
+async function fetchRestaurantData(restaurantName, city) {
   const apiKey = process.env.DB_API_KEY;
-  const searchQuery = queryForm.split(' ').join('%20') + '%20' + cityForm;
+  //remove spaces and replace them with %20 to match the format for the search query
+  const searchQuery =
+    restaurantName.split(' ').join('%20') + '%20' + city.split(' ').join('%20');
 
   //this will look for the restaurant location using Tripadvisor content API
   const options = { method: 'GET', headers: { accept: 'application/json' } };
@@ -20,7 +25,6 @@ async function fetchRestaurantData() {
   const locationId = restaurantData.location_id; //this will be used to get the restaurant details with a second API search
 
   //search the db to see if this restaurant already exists
-  // const restInDb =
   //if statement to check if the restaurant is already in the db
   //if it does, use that data
   //if not then do a second fetch request
