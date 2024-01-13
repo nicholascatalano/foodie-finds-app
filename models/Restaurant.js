@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Review extends Model {}
+class Restaurant extends Model {}
 
-Review.init(
+Restaurant.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,21 +11,29 @@ Review.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    location_id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     city: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    restaurant: {
+    price_level: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    cuisine: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    rating: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    content: {
-      type: DataTypes.STRING(1000),
-      allowNull: false,
+    sub_category: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     user_id: {
       type: DataTypes.INTEGER,
@@ -34,20 +42,13 @@ Review.init(
         key: 'id',
       },
     },
-    restaurant_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'restaurant',
-        key: 'id',
-      }, 
-    },
   },
   {
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'review',
+    modelName: 'restaurant',
   }
 );
 
-module.exports = Review;
+module.exports = Restaurant;
