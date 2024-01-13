@@ -28,11 +28,11 @@ Restaurant.init(
       allowNull: true,
     },
     // cuisine: {
-    //   type: DataTypes.ARRAY(DataTypes.TEXT),
+    //   type: DataTypes.JSON,
     //   allowNull: true,
     // },
-    // sub_category: {
-    //   type: DataTypes.ARRAY(DataTypes.TEXT),
+    // sub_categories: {
+    //   type: DataTypes.JSON,
     //   allowNull: true,
     // },
   },
