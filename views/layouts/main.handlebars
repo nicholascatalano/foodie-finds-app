@@ -1,12 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    {{{body}}}
-    
-</body>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Food Blog</title>
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+  <body>
+    <header id='navbar' class='text-white'>
+        <h1>FOOD BLOG</h1>
+        {{#if loggedIn}}
+            <a href="/">Home</a>
+            <a href="/aboutus">About Us</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/api/users/logout">Logout</a>
+        {{else}}
+            <a href="/">Home</a>
+            <a href="/aboutus">About Us</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/login">Login</a>
+        {{/if}}  
+
+    </header>
+    <main>
+      {{{body}}}
+    </main>
+  </body>
 </html>
