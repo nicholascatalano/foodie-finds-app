@@ -16,6 +16,16 @@
               id='logout'
             >Logout</a></li>
         </ul>
+        <h2>Reviews</h2>
+        <ul>
+          {{#each reviews}}
+            <li>
+              <h3>{{this.restaurant}} in {{this.city}}</h3>
+              <p>Rating: {{this.rating}}/5</p>
+              <p>{{this.content}}</p>
+            </li>
+          {{/each}}
+        </ul>
       {{else}}
         <p class='login-redirect'>Please
           <a href='/login'>login</a>
