@@ -124,3 +124,44 @@
 .login-link a:hover {
   color: #e6a157;
 }
+.gradient-background {
+  background: linear-gradient(135deg, #adcfa6, #cbf3f0);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.reviews-section {
+  margin-top: 30px;
+}
+.reviews-title {
+  color: #2ec4b6;
+  text-align: center;
+}
+
+.reviews-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.review-item {
+  background-color: #cbf3f0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-restaurant {
+  color: #ffbf69;
+  margin-bottom: 5px;
+}
+
+.review-rating,
+.review-content {
+  color: #333;
+}
+
+.review-rating {
+  font-style: italic;
+}
