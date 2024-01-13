@@ -20,7 +20,7 @@ async function fetchRestaurantData() {
   const locationId = restaurantData.location_id; //this will be used to get the restaurant details with a second API search
 
   //search the db to see if this restaurant already exists
-
+  // const restInDb =
   //if statement to check if the restaurant is already in the db
   //if it does, use that data
   //if not then do a second fetch request
