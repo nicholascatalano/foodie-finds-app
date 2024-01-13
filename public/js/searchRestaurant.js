@@ -4,7 +4,7 @@ async function fetchRestaurantDate() {
   const queryForm = document.querySelector('#review-restaurant').value.trim(); //from the new review form
   const cityForm = document.querySelector('#review-city').value.trim(); //from review form
 
-  const apiKey = 'C0F90B543BB44183916FEE462F90E8DD';
+  const apiKey = process.env.DB_API_KEY;
   const searchQuery = queryForm.split(' ').join('%20') + '%20' + cityForm;
 
   //this will look for the restaurant location using Tripadvisor content API
@@ -25,8 +25,8 @@ async function fetchRestaurantDate() {
     options
   );
 
-//   restaurantDetails will have name, address_obj.city, cuisine, website, price_level, subcategories
-//      can make a post request to create a restaurant so we can render it 
+  //   restaurantDetails will have name, address_obj.city, cuisine, website, price_level, subcategories
+  //      can make a post request to create a restaurant so we can render it
 }
 
 fetchRestaurantDate();
