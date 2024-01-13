@@ -12,7 +12,7 @@ Restaurant.init(
       autoIncrement: true,
     },
     location_id: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     name: {
@@ -27,14 +27,14 @@ Restaurant.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    cuisine: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    sub_category: {
-      type: DataTypes.STRING,
-      allowNull: true,
-    },
+    // cuisine: {
+    //   type: DataTypes.ARRAY(DataTypes.TEXT),
+    //   allowNull: true,
+    // },
+    // sub_category: {
+    //   type: DataTypes.ARRAY(DataTypes.TEXT),
+    //   allowNull: true,
+    // },
   },
   {
     sequelize,
