@@ -19,6 +19,15 @@ Restaurant.belongsToMany(User, {
   },
 });
 
+Restaurant.hasMany(Review, {
+  foreignKey: 'restaurant_id',
+  onDelete: 'CASCADE',
+});
+
+Review.belongsTo(Restaurant, {
+  foreignKey: 'restaurant_id',
+});
+
 module.exports = {
   User,
   Review,
