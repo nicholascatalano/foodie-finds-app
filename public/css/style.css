@@ -124,3 +124,10 @@
 .login-link a:hover {
   color: #e6a157;
 }
+.gradient-background {
+  background: linear-gradient(135deg, #adcfa6, #cbf3f0);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
