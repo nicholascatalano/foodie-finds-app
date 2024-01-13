@@ -1,6 +1,7 @@
 //import models
 const User = require('./User');
 const Review = require('./Review');
+const Restaurant = require('./Restaurant');
 
 User.hasMany(Review, {
   foreignKey: 'user_id',
@@ -11,7 +12,15 @@ Review.belongsTo(User, {
   foreignKey: 'user_id',
 });
 
+Restaurant.belongsToMany(User, {
+  through: {
+    model: Review,
+    unique: false,
+  },
+});
+
 module.exports = {
   User,
   Review,
+  Restaurant,
 };
