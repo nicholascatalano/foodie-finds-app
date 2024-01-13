@@ -16,4 +16,18 @@ router.post('/', async (req, res) => {
   }
 });
 
+//GET route for one restaurant
+router.get('/id', async (req, res) => {
+  try {
+    const restaurant = await Restaurant.findOne({
+      where: {
+        location_id: req.params.location_id,
+      },
+    });
+    res.status(200).json(restaurant.get({ plain: true }));
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
