@@ -16,16 +16,20 @@
               id='logout'
             >Logout</a></li>
         </ul>
-        <h2>Reviews</h2>
-        <ul>
-          {{#each reviews}}
-            <li>
-              <h3>{{this.restaurant}} in {{this.city}}</h3>
-              <p>Rating: {{this.rating}}/5</p>
-              <p>{{this.content}}</p>
-            </li>
-          {{/each}}
-        </ul>
+        <div class='reviews-section'>
+          <h2 class='reviews-title'>Reviews</h2>
+          <ul class='reviews-list'>
+            {{#each reviews}}
+              <li>
+                <h3 class='review-restaurant'>{{this.restaurant}}
+                  in
+                  {{this.city}}</h3>
+                <p class='review-rating'>Rating: {{this.rating}}/5</p>
+                <p class='review-content'>{{this.content}}</p>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
       {{else}}
         <p class='login-redirect'>Please
           <a href='/login'>login</a>
