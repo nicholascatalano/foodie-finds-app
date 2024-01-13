@@ -39,7 +39,7 @@ Review.init(
       references: {
         model: 'restaurant',
         key: 'id',
-      }, 
+      },
     },
   },
   {
