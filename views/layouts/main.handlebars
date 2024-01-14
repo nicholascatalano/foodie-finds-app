@@ -7,37 +7,36 @@
   </head>
   <body>
     <div class='homepage-container'>
-    <header id='navbar'>
-      <h1 class='homepage-title'>FOOD BLOG</h1>
-      {{#if loggedIn}}
-        <ul class='nav-list'>
-          <li class='nav-item'><a href='/' class='nav-link'>Home</a></li>
-          <li class='nav-item'><a href='/aboutus' class='nav-link'>About Us</a></li>
-          <li class='nav-item'><a
-              href='/dashboard'
-              class='nav-link'
-            >Dashboard</a></li>
-          <li class='nav-item'><a
-              href='/api/users/logout'
-              class='nav-link'
-            >Logout</a></li>
-        </ul>
-      {{else}}
-        <ul class='nav-list'>
-          <li class='nav-item'><a href='/' class='nav-link'>Home</a></li>
-          <li class='nav-item'><a href='/aboutus' class='nav-link'>About Us</a></li>
-          <li class='nav-item'><a
-              href='/dashboard'
-              class='nav-link'
-            >Dashboard</a></li>
-          <li class='nav-item'><a href='/login' class='nav-link'>Login</a></li>
-        </ul>
-      {{/if}}
+      <header id='navbar'>
+        <h1 class='homepage-title'>FOOD BLOG</h1>
 
-    </header>
+        <ul class='nav-list'>
+          <li class='nav-item'><a href='/' class='nav-link'>Home</a></li>
+          <li class='nav-item'><a href='/aboutus' class='nav-link'>About Us</a></li>
+          <li class='nav-item'><a
+              href='/dashboard'
+              class='nav-link'
+            >Dashboard</a></li>
+          {{#if loggedIn}}
+            <li class='nav-item'><a
+                href='#'
+                class='nav-link logout-button'
+                id='logout'
+              >Logout</a></li>
+          {{else}}
+            <li class='nav-item'><a
+                href='/login'
+                class='nav-link'
+              >Login</a></li>
+          {{/if}}
+        </ul>
+      </header>
     </div>
     <main>
       {{{body}}}
     </main>
+    {{#if loggedIn}}
+      <script src='/js/logout.js'></script>
+    {{/if}}
   </body>
 </html>
