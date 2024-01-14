@@ -8,22 +8,23 @@ const newPostHandler = async function (event) {
   const restaurant_id = await fetchRestaurant_id(restaurant, city);
   console.log('restaurant_id', restaurant_id);
 
-  // if (city && restaurant && rating && rating && content) {
-  //   await fetch('/api/review', {
-  //     method: 'POST',
-  //     body: JSON.stringify({
-  //       city,
-  //       restaurant,
-  //       rating,
-  //       content,
-  //       //needs restaurant_id
-  //     }),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   });
-  //   document.location.replace('/');
-  // }
+  if (city && restaurant && rating && rating && content && restaurant_id) {
+    await fetch('/api/review', {
+      method: 'POST',
+      body: JSON.stringify({
+        city,
+        restaurant,
+        rating,
+        content,
+        restaurant_id,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    console.log('Review created!!');
+    // document.location.replace('/');
+  }
 };
 
 document

@@ -51,4 +51,20 @@ router.get('/:name/:city', async (req, res) => {
   }
 });
 
+//GET a restaurant id from TripAdvisor content API
+router.get('/:searchQuery', async (req, res) => {
+  try {
+    const apiKey = process.env.DB_API_KEY;
+    //this will look for the restaurant location using Tripadvisor content API
+    const options = { method: 'GET', headers: { accept: 'application/json' } };
+    const responseFromAPI = await fetch(
+      `https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=${req.params.searchQuery}&category=restaurants&language=en&key=${apiKey}`,
+      options
+    );
+    const response = await responseFromAPI.json();
+    res.status(200).json(response);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;

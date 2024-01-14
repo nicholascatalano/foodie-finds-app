@@ -25,49 +25,47 @@ const fetchRestaurant_id = async (restaurantName, cityName) => {
 
 //fetchRestaurantData will return true if a new restaurant was successfully created
 async function fetchRestaurantExternally(restaurantName, cityName) {
-  const apiKey = process.env.DB_API_KEY;
   //remove spaces and replace them with %20 to match the format for the search query
   const searchQuery =
     restaurantName.split(' ').join('%20') +
     '%20' +
     cityName.split(' ').join('%20');
 
-  //this will look for the restaurant location using Tripadvisor content API
-  const options = { method: 'GET', headers: { accept: 'application/json' } };
+  // //this will look for the restaurant location using Tripadvisor content API
 
-  const response = await fetch(
-    `https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=${searchQuery}&category=restaurants&language=en&key=${apiKey}`,
-    options
-  );
+  const response = await fetch(`api/restaurants/${searchQuery}`);
 
-  //response object will have data array - assume the correct hit will be the first
-  const locationId = response.data[0].location_id; //this will be used to get the restaurant details with a second API search
+  const placesData = await response.json();
+  console.log(placesData);
 
-  //get restaurant details using the locationId and save them in an object
-  const restaurantDetails = await fetch(
-    `https://api.content.tripadvisor.com/api/v1/location/${locationId}/details?language=en&currency=USD&key=${apiKey}`,
-    options
-  );
+  // //response object will have data array - assume the correct hit will be the first
+  // const locationId = response.data[0].location_id; //this will be used to get the restaurant details with a second API search
 
-  // //   deconstruct restaurantDetails with the info we need to send to the model
-  const {
-    location_id,
-    name,
-    address_obj: { city },
-    price_level,
-    cuisine,
-    subcategory,
-  } = restaurantDetails;
+  // //get restaurant details using the locationId and save them in an object
+  // const restaurantDetails = await fetch(
+  //   `https://api.content.tripadvisor.com/api/v1/location/${locationId}/details?language=en&currency=USD&key=${apiKey}`,
+  //   options
+  // );
 
-  // POST request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
-  const newRest = await fetch('/api/restaurants/', {
-    method: 'POST',
-    body: JSON.stringify({ location_id, name, city, price_level }),
-    headers: { 'Content-Type': 'application/json' },
-  });
+  // // //   deconstruct restaurantDetails with the info we need to send to the model
+  // const {
+  //   location_id,
+  //   name,
+  //   address_obj: { city },
+  //   price_level,
+  //   cuisine,
+  //   subcategory,
+  // } = restaurantDetails;
 
-  // Handle the response from the fetch request
-  const newRestaurantInfo = await newRest.json();
+  // // POST request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
+  // const newRest = await fetch('/api/restaurants/', {
+  //   method: 'POST',
+  //   body: JSON.stringify({ location_id, name, city, price_level }),
+  //   headers: { 'Content-Type': 'application/json' },
+  // });
 
-  return newRestaurantInfo.id;
+  // // Handle the response from the fetch request
+  // const newRestaurantInfo = await newRest.json();
+
+  // return newRestaurantInfo.id;
 }
