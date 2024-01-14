@@ -6,7 +6,9 @@ const { User, Review, Restaurant } = require('../../models');
 //GET - all restaurants
 router.get('/', async (req, res) => {
   try {
-    const allRestaurants = await Restaurant.findAll();
+    const allRestaurants = await Restaurant.findAll({
+      include: [{ model: Review, as: 'reviews' }],
+    });
     const restaurants = allRestaurants.map((restaurant) =>
       restaurant.get({ plain: true })
     );
