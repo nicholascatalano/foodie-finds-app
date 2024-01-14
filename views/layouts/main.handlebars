@@ -6,8 +6,9 @@
     <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
-    <header id='navbar' class='text-white'>
-      <h1>FOOD BLOG</h1>
+    <div class='homepage-container'>
+    <header id='navbar'>
+      <h1 class='homepage-title'>FOOD BLOG</h1>
       {{#if loggedIn}}
         <ul class='nav-list'>
           <li class='nav-item'><a href='/' class='nav-link'>Home</a></li>
@@ -34,6 +35,7 @@
       {{/if}}
 
     </header>
+    </div>
     <main>
       {{{body}}}
     </main>
