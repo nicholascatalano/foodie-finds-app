@@ -23,7 +23,7 @@ const newPostHandler = async function (event) {
       },
     });
     console.log('Review created!!');
-    // document.location.replace('/');
+    document.location.replace('/');
   }
 };
 
