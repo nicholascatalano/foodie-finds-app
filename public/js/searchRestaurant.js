@@ -31,31 +31,28 @@ async function fetchRestaurantExternally(restaurantName, cityName) {
     '%20' +
     cityName.split(' ').join('%20');
 
-  // //this will look for the restaurant location using Tripadvisor content API
-
-  const response = await fetch(`api/restaurants/${searchQuery}`);
-
+  //this will look for the restaurant location using Tripadvisor content API using the backend API endpoint /api/restaurants/:searchQuery
+  const response = await fetch(`/api/restaurants/${searchQuery}`);
   const placesData = await response.json();
-  console.log(placesData);
 
-  // //response object will have data array - assume the correct hit will be the first
-  // const locationId = response.data[0].location_id; //this will be used to get the restaurant details with a second API search
+  //response object will have data array - assume the correct hit will be the first
+  const locationId = placesData.data[0].location_id; //this will be used to get the restaurant details with a second API search
 
-  // //get restaurant details using the locationId and save them in an object
-  // const restaurantDetails = await fetch(
-  //   `https://api.content.tripadvisor.com/api/v1/location/${locationId}/details?language=en&currency=USD&key=${apiKey}`,
-  //   options
-  // );
+  //get restaurant details using the locationId and save them in an object
+  const restaurantData = await fetch(`/api/restaurants/${locationId}`);
+  const restaurantDetails = await restaurantData.json();
 
-  // // //   deconstruct restaurantDetails with the info we need to send to the model
-  // const {
-  //   location_id,
-  //   name,
-  //   address_obj: { city },
-  //   price_level,
-  //   cuisine,
-  //   subcategory,
-  // } = restaurantDetails;
+  //   deconstruct restaurantDetails with the info we need to send to the model
+  const {
+    location_id,
+    name,
+    address_obj: { city },
+    price_level,
+    cuisine,
+    subcategory,
+  } = restaurantDetails;
+
+  console.log(`restaurant ${name} is going to be added to the db next!`);
 
   // // POST request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
   // const newRest = await fetch('/api/restaurants/', {

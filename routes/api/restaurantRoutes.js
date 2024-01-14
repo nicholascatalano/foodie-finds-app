@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const { User, Review, Restaurant } = require('../../models');
+const apiKey = process.env.DB_API_KEY; //api key for external API
 
 // endpoint -> api/restaurants
 
@@ -54,7 +55,6 @@ router.get('/:name/:city', async (req, res) => {
 //GET a restaurant id from TripAdvisor content API
 router.get('/:searchQuery', async (req, res) => {
   try {
-    const apiKey = process.env.DB_API_KEY;
     //this will look for the restaurant location using Tripadvisor content API
     const options = { method: 'GET', headers: { accept: 'application/json' } };
     const responseFromAPI = await fetch(
@@ -63,6 +63,20 @@ router.get('/:searchQuery', async (req, res) => {
     );
     const response = await responseFromAPI.json();
     res.status(200).json(response);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+//GET a restaurant using the unique location_id identifier from TripAdvisor
+router.get('/:location_id', async (req, res) => {
+  try {
+    //get restaurant details using the locationId and save them in an object
+    const options = { method: 'GET', headers: { accept: 'application/json' } };
+    const restaurantDetails = await fetch(
+      `https://api.content.tripadvisor.com/api/v1/location/${req.params.location_id}/details?language=en&currency=USD&key=${apiKey}`,
+      options
+    );
   } catch (err) {
     res.status(500).json(err);
   }
