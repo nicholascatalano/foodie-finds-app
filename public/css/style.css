@@ -1,3 +1,11 @@
+aside {
+  flex: 0;
+  background-color: var(--tertiary);
+  padding: 80px;
+  text-align: left;
+  color: var(--light);
+}
+
 .login-container {
   background-color: #cbf3f0;
   width: 300px;
@@ -133,6 +141,7 @@
 }
 .reviews-section {
   margin-top: 30px;
+  display: flex;
 }
 .reviews-title {
   color: #2ec4b6;
@@ -164,4 +173,9 @@
 
 .review-rating {
   font-style: italic;
+}
+
+.new-post-button {
+  display: flex;
+  float: right;
 }
