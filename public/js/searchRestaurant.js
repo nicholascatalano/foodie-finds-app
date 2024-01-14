@@ -39,10 +39,12 @@ async function fetchRestaurantExternally(restaurantName, cityName) {
   const locationId = placesData.data[0].location_id; //this will be used to get the restaurant details with a second API search
 
   //get restaurant details using the locationId and save them in an object
-  const restaurantData = await fetch(`/api/restaurants/${locationId}`);
+  const restaurantData = await fetch(
+    `/api/restaurants/search/get_details/${locationId}`
+  );
   const restaurantDetails = await restaurantData.json();
 
-  //   deconstruct restaurantDetails with the info we need to send to the model
+  // deconstruct restaurantDetails with the info we need to send to the model
   const {
     location_id,
     name,
@@ -54,15 +56,15 @@ async function fetchRestaurantExternally(restaurantName, cityName) {
 
   console.log(`restaurant ${name} is going to be added to the db next!`);
 
-  // // POST request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
-  // const newRest = await fetch('/api/restaurants/', {
-  //   method: 'POST',
-  //   body: JSON.stringify({ location_id, name, city, price_level }),
-  //   headers: { 'Content-Type': 'application/json' },
-  // });
+  // POST request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
+  const newRest = await fetch('/api/restaurants/', {
+    method: 'POST',
+    body: JSON.stringify({ location_id, name, city, price_level }),
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-  // // Handle the response from the fetch request
-  // const newRestaurantInfo = await newRest.json();
+  // Handle the response from the fetch request
+  const newRestaurantInfo = await newRest.json();
 
-  // return newRestaurantInfo.id;
+  return newRestaurantInfo.id;
 }
