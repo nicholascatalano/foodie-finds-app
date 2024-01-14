@@ -9,7 +9,6 @@ router.get('/', withAuth, async (req, res) => {
     const reviewData = await Review.findAll({
       where: {
         userId: req.session.userId,
-        loggedIn: req.session.loggedIn,
       },
     });
 
@@ -19,10 +18,21 @@ router.get('/', withAuth, async (req, res) => {
         plain: true,
       })
     );
-    res.render('dashboard', { reviews });
+    res.render('userReviews', { layout: 'dashboard', reviews });
   } catch (err) {
     // if withAuth fails...
     // if user has no active posts, redirect to login page:
     res.redirect('login');
   }
 });
+
+// GET new review route in dashboard
+router.get('/new', withAuth, async (req, res) => {
+  try {
+    res.render('newReview', { layout: 'dashboard' });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+module.exports = router;
