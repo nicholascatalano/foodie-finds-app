@@ -18,7 +18,11 @@ router.get('/', withAuth, async (req, res) => {
         plain: true,
       })
     );
-    res.render('userReviews', { layout: 'dashboard', reviews });
+    res.render('userReviews', {
+      layout: 'dashboard',
+      reviews,
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     // if withAuth fails...
     // if user has no active posts, redirect to login page:
