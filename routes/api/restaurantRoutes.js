@@ -32,14 +32,21 @@ router.post('/', async (req, res) => {
 });
 
 //GET route for one restaurant
-router.get('/:location_id', async (req, res) => {
+router.get('/:name/:city', async (req, res) => {
   try {
     const restaurant = await Restaurant.findOne({
       where: {
-        location_id: req.params.location_id,
+        name: req.params.name,
+        city: req.params.city,
       },
     });
-    res.status(200).json(restaurant.get({ plain: true }));
+    //if the restaurant exists it will return a 200 response
+    if (restaurant) {
+      res.status(200).json(restaurant.get({ plain: true }));
+    } else {
+      //if it doesn't exist it will return a 404 response
+      res.status(404).json("Restaurant doesn't exists on the database");
+    }
   } catch (err) {
     res.status(500).json(err);
   }

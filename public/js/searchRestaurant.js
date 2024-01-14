@@ -1,11 +1,18 @@
-//first check if the restaurant is in the db
-//using the name and city
-const isRestaurantInDb = (restaurantName, city) => {
+//first check if the restaurant is in the db using the name and city
+const isRestaurantInDb = async (restaurantName, city) => {
+  //will look for the restaunt using this fetch request
+  const response = await fetch(`/api/restaurants/${restaurantName}/${city}`);
 
-}
+  //if response.ok
+  if (response.ok) {
+    //it already exists. assign the restaurant id ?? confused on what to do here
+  } else {
+    //lookit up using the external api
+    fetchRestaurantData(restaurantName, city);
+  }
+};
 
-
-//fetchRestaurantData uses an api KEY 
+//fetchRestaurantData uses api KEY
 async function fetchRestaurantData(restaurantName, city) {
   const apiKey = process.env.DB_API_KEY;
   //remove spaces and replace them with %20 to match the format for the search query
@@ -24,11 +31,6 @@ async function fetchRestaurantData(restaurantName, city) {
   const restaurantData = response.data[0];
   const locationId = restaurantData.location_id; //this will be used to get the restaurant details with a second API search
 
-  //search the db to see if this restaurant already exists
-  //if statement to check if the restaurant is already in the db
-  //if it does, use that data
-  //if not then do a second fetch request
-
   //get restaurant details using the locationId and save them in an object
   const restaurantDetails = await fetch(
     `https://api.content.tripadvisor.com/api/v1/location/${locationId}/details?language=en&currency=USD&key=${apiKey}`,
@@ -36,5 +38,10 @@ async function fetchRestaurantData(restaurantName, city) {
   );
 
   //   restaurantDetails will have name, address_obj.city, cuisine, website, price_level, subcategories
-  //   needs a fetch request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
+  //   POST request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
+  // const newRest = await fetch('/api/restaurants/', {
+  //   mehod: 'POST',
+  //   body: JSON.stringify({location_id, name, }),
+  //   headers: { 'Content-Type': 'application/json' },
+  // });
 }
