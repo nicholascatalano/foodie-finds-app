@@ -5,7 +5,10 @@ const newPostHandler = async function (event) {
   const rating = document.querySelector('#review-rating').value;
   const content = document.querySelector('#review-content').value;
 
-  if (city && restaurant && rating && rating && content) {
+  const restaurant_id = await fetchRestaurant_id(restaurant, city);
+  console.log('restaurant_id', restaurant_id);
+
+  if (city && restaurant && rating && rating && content && restaurant_id) {
     await fetch('/api/review', {
       method: 'POST',
       body: JSON.stringify({
@@ -13,11 +16,13 @@ const newPostHandler = async function (event) {
         restaurant,
         rating,
         content,
+        restaurant_id,
       }),
       headers: {
         'Content-Type': 'application/json',
       },
     });
+    console.log('Review created!!');
     document.location.replace('/');
   }
 };

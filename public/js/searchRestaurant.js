@@ -1,42 +1,50 @@
-//first check if the restaurant is in the db using the name and city
-const isRestaurantInDb = async (restaurantName, city) => {
-  //will look for the restaunt using this fetch request
-  const response = await fetch(`/api/restaurants/${restaurantName}/${city}`);
+//fetchRestaurant_id will first look for the restaurant in the database
+//it will return the restaurant_id
 
-  //if response.ok
+const fetchRestaurant_id = async (restaurantName, cityName) => {
+  //will look for the restaunt in the db using this fetch request
+  const response = await fetch(
+    `/api/restaurants/${restaurantName}/${cityName}`
+  );
+
+  //if response.ok it will return the existing restaurant_id
   if (response.ok) {
-    //it already exists. assign the restaurant id ?? confused on what to do here
+    //it already exists. Grab the restaurant_id from the response
+    const restaurantInfo = await response.json();
+    let restaurant_id = restaurantInfo.id;
+    return restaurant_id;
   } else {
-    //lookit up using the external api
-    fetchRestaurantData(restaurantName, city);
+    //if not, it will create a new restaurant using the fetchRestaurantExternally function
+    let restaurant_id = await fetchRestaurantExternally(
+      restaurantName,
+      cityName
+    );
+    return restaurant_id;
   }
 };
 
-//fetchRestaurantData will return true if a new restaurant was successfully created 
-async function fetchRestaurantData(restaurantName, city) {
-  const apiKey = process.env.DB_API_KEY;
+//fetchRestaurantData will return true if a new restaurant was successfully created
+async function fetchRestaurantExternally(restaurantName, cityName) {
   //remove spaces and replace them with %20 to match the format for the search query
   const searchQuery =
-    restaurantName.split(' ').join('%20') + '%20' + city.split(' ').join('%20');
+    restaurantName.split(' ').join('%20') +
+    '%20' +
+    cityName.split(' ').join('%20');
 
-  //this will look for the restaurant location using Tripadvisor content API
-  const options = { method: 'GET', headers: { accept: 'application/json' } };
-
-  const response = await fetch(
-    `https://api.content.tripadvisor.com/api/v1/location/search?searchQuery=${searchQuery}&category=restaurants&language=en&key=${apiKey}`,
-    options
-  );
+  //this will look for the restaurant location using Tripadvisor content API using the backend API endpoint /api/restaurants/:searchQuery
+  const response = await fetch(`/api/restaurants/${searchQuery}`);
+  const placesData = await response.json();
 
   //response object will have data array - assume the correct hit will be the first
-  const locationId = response.data[0].location_id; //this will be used to get the restaurant details with a second API search
+  const locationId = placesData.data[0].location_id; //this will be used to get the restaurant details with a second API search
 
   //get restaurant details using the locationId and save them in an object
-  const restaurantDetails = await fetch(
-    `https://api.content.tripadvisor.com/api/v1/location/${locationId}/details?language=en&currency=USD&key=${apiKey}`,
-    options
+  const restaurantData = await fetch(
+    `/api/restaurants/search/get_details/${locationId}`
   );
+  const restaurantDetails = await restaurantData.json();
 
-  //   deconstruct restaurantDetails with the info we need to send to the model
+  // deconstruct restaurantDetails with the info we need to send to the model
   const {
     location_id,
     name,
@@ -46,12 +54,17 @@ async function fetchRestaurantData(restaurantName, city) {
     subcategory,
   } = restaurantDetails;
 
-  //   POST request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
+  console.log(`restaurant ${name} is going to be added to the db next!`);
+
+  // POST request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
   const newRest = await fetch('/api/restaurants/', {
-    mehod: 'POST',
+    method: 'POST',
     body: JSON.stringify({ location_id, name, city, price_level }),
     headers: { 'Content-Type': 'application/json' },
   });
 
-  return newRest;
+  // Handle the response from the fetch request
+  const newRestaurantInfo = await newRest.json();
+
+  return newRestaurantInfo.id;
 }
