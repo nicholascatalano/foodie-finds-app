@@ -69,14 +69,17 @@ router.get('/:searchQuery', async (req, res) => {
 });
 
 //GET a restaurant using the unique location_id identifier from TripAdvisor
-router.get('/:location_id', async (req, res) => {
+router.get('/search/get_details/:location_id', async (req, res) => {
   try {
-    //get restaurant details using the locationId and save them in an object
+    // get restaurant details using the locationId and save them in an object
     const options = { method: 'GET', headers: { accept: 'application/json' } };
     const restaurantDetails = await fetch(
       `https://api.content.tripadvisor.com/api/v1/location/${req.params.location_id}/details?language=en&currency=USD&key=${apiKey}`,
       options
     );
+    console.log(req.params);
+    const restaurant = await restaurantDetails.json();
+    res.status(200).json(restaurant);
   } catch (err) {
     res.status(500).json(err);
   }
