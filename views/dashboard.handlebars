@@ -1,0 +1,42 @@
+<div class="dropdown" style="float:left;">
+  <button class="dropbtn">Sort by</button>
+  <div class="dropdown-content" style="left:0;">
+    <a href="#">City</a>
+    <a href="#">Price Range</a>
+    <a href="#">Rating</a>
+  </div>
+</div>
+
+
+<h1>Dashboard</h1>
+<section id="existing-reviews">
+{{#each reviews}}
+  <section class="card">
+      <a href="/reviews/{{id}}" class="card-body">
+        <h3 class="card-title">{{title}}</h3> 
+        <h5>Posted on {{createdOn}}</h5>
+        <p class="card-text">{{content}}</p>
+    </a>
+  </section>
+{{/each}}
+</section>
+<section id="createNew" class="card text-center">
+  <div class="card-body">
+  <h3 class="card-title">Create New Post</h3>
+  <form id="newBlog">
+    <div class="card-text"></div>
+      <label for="title">Title</label><br>
+      <input type="text" id="title" placeholder="title">
+    </div>
+    <div class="card-text"></div>
+      <label for="content">Content</label>
+    <textarea id="content" placeholder="content"></textarea>
+    </div>
+    <button id="create">Create</button>
+</form>
+</div>
+</section>
+<form id="newpost">
+    <button>+ New Post</button>
+</form>
+<script src="/js/dashboard.js"></script>

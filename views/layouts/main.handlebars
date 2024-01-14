@@ -7,18 +7,31 @@
   </head>
   <body>
     <header id='navbar' class='text-white'>
-        <h1>FOOD BLOG</h1>
-        {{#if loggedIn}}
-            <a href="/">Home</a>
-            <a href="/aboutus">About Us</a>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/api/users/logout">Logout</a>
-        {{else}}
-            <a href="/">Home</a>
-            <a href="/aboutus">About Us</a>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/login">Login</a>
-        {{/if}}  
+      <h1>FOOD BLOG</h1>
+      {{#if loggedIn}}
+        <ul class='nav-list'>
+          <li class='nav-item'><a href='/' class='nav-link'>Home</a></li>
+          <li class='nav-item'><a href='/aboutus' class='nav-link'>About Us</a></li>
+          <li class='nav-item'><a
+              href='/dashboard'
+              class='nav-link'
+            >Dashboard</a></li>
+          <li class='nav-item'><a
+              href='/api/users/logout'
+              class='nav-link'
+            >Logout</a></li>
+        </ul>
+      {{else}}
+        <ul class='nav-list'>
+          <li class='nav-item'><a href='/' class='nav-link'>Home</a></li>
+          <li class='nav-item'><a href='/aboutus' class='nav-link'>About Us</a></li>
+          <li class='nav-item'><a
+              href='/dashboard'
+              class='nav-link'
+            >Dashboard</a></li>
+          <li class='nav-item'><a href='/login' class='nav-link'>Login</a></li>
+        </ul>
+      {{/if}}
 
     </header>
     <main>
