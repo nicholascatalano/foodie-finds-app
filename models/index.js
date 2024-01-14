@@ -24,10 +24,6 @@ Restaurant.hasMany(Review, {
   onDelete: 'CASCADE',
 });
 
-Review.belongsTo(Restaurant, {
-  foreignKey: 'restaurant_id',
-});
-
 module.exports = {
   User,
   Review,
