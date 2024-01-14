@@ -28,7 +28,7 @@ router.get('/login', (req, res) => {
     return;
   }
   // render login page
-  res.render('login');
+  res.render('login', { layout: false });
 });
 
 // GET signup route
@@ -39,7 +39,7 @@ router.get('/signup', (req, res) => {
     return;
   }
 
-  res.render('signup');
+  res.render('signup', { layout: false });
 });
 
 router.get('/new', withAuth, async (req, res) => {
