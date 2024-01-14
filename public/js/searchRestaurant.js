@@ -12,7 +12,7 @@ const isRestaurantInDb = async (restaurantName, city) => {
   }
 };
 
-//fetchRestaurantData uses api KEY
+//fetchRestaurantData will return true if a new restaurant was successfully created 
 async function fetchRestaurantData(restaurantName, city) {
   const apiKey = process.env.DB_API_KEY;
   //remove spaces and replace them with %20 to match the format for the search query
@@ -28,8 +28,7 @@ async function fetchRestaurantData(restaurantName, city) {
   );
 
   //response object will have data array - assume the correct hit will be the first
-  const restaurantData = response.data[0];
-  const locationId = restaurantData.location_id; //this will be used to get the restaurant details with a second API search
+  const locationId = response.data[0].location_id; //this will be used to get the restaurant details with a second API search
 
   //get restaurant details using the locationId and save them in an object
   const restaurantDetails = await fetch(
@@ -37,11 +36,22 @@ async function fetchRestaurantData(restaurantName, city) {
     options
   );
 
-  //   restaurantDetails will have name, address_obj.city, cuisine, website, price_level, subcategories
+  //   deconstruct restaurantDetails with the info we need to send to the model
+  const {
+    location_id,
+    name,
+    address_obj: { city },
+    price_level,
+    cuisine,
+    subcategory,
+  } = restaurantDetails;
+
   //   POST request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
-  // const newRest = await fetch('/api/restaurants/', {
-  //   mehod: 'POST',
-  //   body: JSON.stringify({location_id, name, }),
-  //   headers: { 'Content-Type': 'application/json' },
-  // });
+  const newRest = await fetch('/api/restaurants/', {
+    mehod: 'POST',
+    body: JSON.stringify({ location_id, name, city, price_level }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  return newRest;
 }
