@@ -1,0 +1,23 @@
+<h2>Your Reviews!</h2>
+<li class='nav-item'><a href='/new' class='nav-link'>Create New Post</a></li>
+<div class='posts list-group'>
+  {{#each reviews}}
+    <h3 class='review-restaurant'>{{this.restaurant}}
+      in
+      {{this.city}}</h3>
+    <p class='review-rating'>Rating: {{this.rating}}/5</p>
+    <p class='review-content'>{{this.content}}</p>
+  {{/each}}
+</div>
+
+{{! <div class='dropdown' style='float:left;'>
+  <button class='dropbtn'>Sort by</button>
+  <div class='dropdown-content' style='left:0;'>
+    <a href='#'>City</a>
+    <a href='#'>Price Range</a>
+    <a href='#'>Rating</a>
+  </div>
+</div>
+<ul class='nav-list'>
+  <li class='nav-item'><a href='/new' class='nav-link'>Create New Post</a></li>
+</ul> }}

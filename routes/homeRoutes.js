@@ -42,6 +42,7 @@ router.get('/signup', (req, res) => {
   res.render('signup', { layout: false });
 });
 
+// GET new review route
 router.get('/new', withAuth, async (req, res) => {
   try {
     res.render('newReview', { layout: 'main' });

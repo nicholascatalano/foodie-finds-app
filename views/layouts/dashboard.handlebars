@@ -1,0 +1,31 @@
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>Food Blog</title>
+    <link rel='stylesheet' href='/css/style.css' />
+  </head>
+  <body>
+    <div class='homepage-container'>
+      <header id='navbar'>
+        <h1 class='homepage-title'>Dashboard</h1>
+
+        <ul class='nav-list'>
+          <li class='nav-item'><a href='/' class='nav-link'>Home</a></li>
+          <li class='nav-item'><a href='/aboutus' class='nav-link'>About Us</a></li>
+          <li class='nav-item'><a
+              href='#'
+              class='nav-link logout-button'
+              id='logout'
+            >Logout</a></li>
+        </ul>
+      </header>
+    </div>
+    <main>
+      {{{body}}}
+    </main>
+    {{#if loggedIn}}
+      <script src='/js/logout.js'></script>
+    {{/if}}
+  </body>
+</html>
