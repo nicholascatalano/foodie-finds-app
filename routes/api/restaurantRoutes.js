@@ -84,4 +84,15 @@ router.get('/search/get_details/:location_id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+//GET restaurants which match the applied filters by user -> end point api/restaurants/filter/restaurants/by
+router.get('/filter/restaurants/by?', async (req, res) => {
+  try {
+    //name=&cuisine=&price_range=&rating=&city=&type=
+    console.log(req.query);
+    res.status(200).json();
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 module.exports = router;
