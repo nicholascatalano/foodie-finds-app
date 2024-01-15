@@ -6,7 +6,8 @@
   </ul>
   <div class='reviews-section'>
     <aside id ="filters"><h4>Filters to go here</h4>
-      <form id = "type"> Type:
+      <form id = "type"> 
+        <h4>Type:</h4>
         <input type="checkbox" id="sit-down" name="sit-down" value="sit-down">
         <label for="sit-down"> Sit-down</label><br>
         <input type="checkbox" id="quick-bites" name="quick-bites" value="quick-bites">
@@ -14,16 +15,29 @@
         <input type="checkbox" id="cafe" name="cafe" value="cafe">
         <label for="cafe"> Cafe</label>
       </form>
-      <form id = "cuisine"> Cuisine:
+      <form id = "cuisine"> 
+        <h4>Cuisine:</h4>
         <input type="checkbox" id="mexican" name="mexican" value="mexican">
         <label for="mexican"> Mexican</label><br>
         <input type="checkbox" id="vietnamese" name="vietnamese" value="vietnamese">
         <label for="vietnamese"> Vietnamese</label><br>
         <input type="checkbox" id="american" name="american" value="american">
-        <label for="american"> American</label>
+        <label for="american"> American</label><br>
         <input type="checkbox" id="indian" name="indian" value="indian">
         <label for="indian"> Indian</label>
       </form>
+      <form id = "price-range"> 
+        <h4>Price Range:</h4>
+        <input type="checkbox" id="cheap" name="cheap" value="cheap">
+        <label for="cheap"> $</label><br>
+        <input type="checkbox" id="affordable" name="affordable" value="affordable">
+        <label for="affordable"> $$</label><br>
+        <input type="checkbox" id="fancy" name="fancy" value="fancy">
+        <label for="fancy"> $$$</label><br>
+        <input type="checkbox" id="premium" name="premium" value="premium">
+        <label for="premium"> $$$$</label>
+      </form>
+      
     </aside>
     <ul class='reviews-list'>
       {{#each reviews}}
