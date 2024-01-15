@@ -4,93 +4,31 @@
     "name": "Pastis",
     "city": "New York City",
     "price_level": "$$ - $$$",
-    "cuisine": [
-      {
-        "name": "french",
-        "localized_name": "French"
-      },
-      {
-        "name": "european",
-        "localized_name": "European"
-      }
-    ],
-    "sub_catogories": []
+    "cuisine": "french,european",
+    "sub_catogories": ""
   },
   {
     "location_id": "5076005",
     "name": "Aromas del Peru",
     "city": "Miami",
     "price_level": "$$ - $$$",
-    "cuisine": [
-      {
-        "name": "peruvian",
-        "localized_name": "Peruvian"
-      },
-      {
-        "name": "latin",
-        "localized_name": "Latin"
-      },
-      {
-        "name": "seafood",
-        "localized_name": "Seafood"
-      }
-    ],
-    "sub_catogories": []
+    "cuisine": "peruvian,latin,seafood",
+    "sub_catogories": ""
   },
   {
     "location_id": "822833",
     "name": "Nobu San Diego",
     "city": "San Diego",
     "price_level": "$$$$",
-    "cuisine": [
-      {
-        "name": "japanese",
-        "localized_name": "Japanese"
-      },
-      {
-        "name": "seafood",
-        "localized_name": "Seafood"
-      },
-      {
-        "name": "sushi",
-        "localized_name": "Sushi"
-      },
-      {
-        "name": "asian",
-        "localized_name": "Asian"
-      },
-      {
-        "name": "contemporary",
-        "localized_name": "Contemporary"
-      }
-    ],
-    "sub_catogories": [
-      {
-        "name": "sit_down",
-        "localized_name": "Sit down"
-      }
-    ]
+    "cuisine": "japanese,seafood,sushi,asian,contemporary",
+    "sub_catogories": "sit_down"
   },
   {
     "location_id": "491629",
     "name": "NORMS Restaurant",
     "city": "Los Angeles",
     "price_level": "$",
-    "cuisine": [
-      {
-        "name": "american",
-        "localized_name": "American"
-      },
-      {
-        "name": "diner",
-        "localized_name": "Diner"
-      }
-    ],
-    "sub_catogories": [
-      {
-        "name": "sit_down",
-        "localized_name": "Sit down"
-      }
-    ]
+    "cuisine": "american,diner",
+    "sub_catogories": "sit_down"
   }
 ]

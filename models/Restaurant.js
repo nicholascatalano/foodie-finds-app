@@ -27,14 +27,14 @@ Restaurant.init(
       type: DataTypes.STRING,
       allowNull: true,
     },
-    // cuisine: {
-    //   type: DataTypes.JSON,
-    //   allowNull: true,
-    // },
-    // sub_categories: {
-    //   type: DataTypes.JSON,
-    //   allowNull: true,
-    // },
+    cuisine: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    sub_categories: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
   },
   {
     sequelize,
