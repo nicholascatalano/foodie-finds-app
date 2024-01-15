@@ -56,10 +56,23 @@ async function fetchRestaurantExternally(restaurantName, cityName) {
 
   console.log(`restaurant ${name} is going to be added to the db next!`);
 
+  //cuisine and subcategory come as an array of object - need to convert to string
+  const cuisineToString = cuisine.map((cuisine) => cuisine.name).toString();
+  const subcategoryToString = subcategory
+    .map((subcategory) => subcategory.name)
+    .toString();
+
   // POST request for api/restaurants/ -> can make a post request to create a restaurant so we can render it
   const newRest = await fetch('/api/restaurants/', {
     method: 'POST',
-    body: JSON.stringify({ location_id, name, city, price_level }),
+    body: JSON.stringify({
+      location_id,
+      name,
+      city,
+      price_level,
+      cuisine: cuisineToString,
+      sub_categories: subcategoryToString,
+    }),
     headers: { 'Content-Type': 'application/json' },
   });
 
