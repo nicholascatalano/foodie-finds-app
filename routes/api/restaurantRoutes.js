@@ -93,21 +93,36 @@ router.get('/filter/restaurants/by?', async (req, res) => {
     //query can look with one or all
     //name=&cuisine=&price_range=&rating=&city=&type=
     console.log(req.query);
-    //building object to use as findAllfilters
-    // if (req.query.name && req.query.cuisine && req.query && price_range){
-
+    let filters;
+    //building the sequelize literal to filter restaurants
+    // if (req.query.name && req.query.cuisine) {
+    //   filters = [
+    //     {
+    //       name: req.query.name,
+    //     },
+    //     {
+    //       cuisine: {
+    //         [Op.like]: sequelize.literal(`'%${req.query.cuisine}%'`),
+    //       },
+    //     },
+    //   ];
+    //   return filters;
     // }
     const filteredRestaurants = await Restaurant.findAll({
       where: {
         [Op.and]: [
           {
+            name: req.query.name,
+          },
+          {
             cuisine: {
-              [Op.like]: sequelize.literal(
-                `'%${req.query.cuisine}%' OR cuisine LIKE '%french%'`
-              ),
+              [Op.like]: sequelize.literal(`'%${req.query.cuisine}%'`),
             },
           },
         ],
+        // { price_range: req.query.price_range || '' },
+        // { city: req.query.city || '' },
+        // { type: req.query.type || '' },
       },
     });
     const restaurants = filteredRestaurants.map((rest) =>
