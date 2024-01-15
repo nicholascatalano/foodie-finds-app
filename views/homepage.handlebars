@@ -5,7 +5,16 @@
         New Post</a></li>
   </ul>
   <div class='reviews-section'>
-    <aside><h4>Filters to go here</h4></aside>
+    <aside id ="filters"><h4>Filters to go here</h4>
+      <form id = "type"> Type:
+        <input type="checkbox" id="sit-down" name="sit-down" value="sit-down">
+        <label for="sit-down"> Sit-down</label><br>
+        <input type="checkbox" id="quick-bites" name="quick-bites" value="quick-bites">
+        <label for="quick-bites"> Quick bites</label><br>
+        <input type="checkbox" id="cafe" name="cafe" value="cafe">
+        <label for="cafe"> Cafe</label>
+      </form>
+    </aside>
     <ul class='reviews-list'>
       {{#each reviews}}
         <li>
