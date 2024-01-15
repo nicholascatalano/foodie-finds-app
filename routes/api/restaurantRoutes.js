@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const { Op } = require('sequelize');
+const sequelize = require('../../config/connection');
 const { User, Review, Restaurant } = require('../../models');
 const apiKey = process.env.DB_API_KEY; //api key for external API
 
@@ -88,9 +90,23 @@ router.get('/search/get_details/:location_id', async (req, res) => {
 //GET restaurants which match the applied filters by user -> end point api/restaurants/filter/restaurants/by
 router.get('/filter/restaurants/by?', async (req, res) => {
   try {
+    //query can look with one or all
     //name=&cuisine=&price_range=&rating=&city=&type=
     console.log(req.query);
-    res.status(200).json();
+    //building object to use as findAllfilters
+    // if (req.query.name && req.query.cuisine && req.query && price_range){
+
+    // }
+    const filteredRestaurants = await Restaurant.findAll({
+      where: {
+        cuisine: { [Op.like]: sequelize.literal("'%sushi%'") },
+      },
+    });
+    const restaurants = filteredRestaurants.map((rest) =>
+      rest.get({ plain: true })
+    );
+
+    res.status(200).json(restaurants);
   } catch (err) {
     res.status(500).json(err);
   }
