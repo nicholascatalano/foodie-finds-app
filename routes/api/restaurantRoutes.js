@@ -99,7 +99,15 @@ router.get('/filter/restaurants/by?', async (req, res) => {
     // }
     const filteredRestaurants = await Restaurant.findAll({
       where: {
-        cuisine: { [Op.like]: sequelize.literal("'%sushi%'") },
+        [Op.and]: [
+          {
+            cuisine: {
+              [Op.like]: sequelize.literal(
+                `'%${req.query.cuisine}%' OR cuisine LIKE '%french%'`
+              ),
+            },
+          },
+        ],
       },
     });
     const restaurants = filteredRestaurants.map((rest) =>
