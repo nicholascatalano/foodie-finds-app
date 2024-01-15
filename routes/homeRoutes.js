@@ -52,7 +52,7 @@ router.get('/new', withAuth, async (req, res) => {
 });
 
 // GET all reviews given a restaurant id (foreign key of Restaurant model)
-router.get('/review/:restaurant_id', async (req, res) => {
+router.get('/review/:restaurant_id', withAuth, async (req, res) => {
   try {
     const reviewData = await Review.findAll({
       where: {
@@ -67,6 +67,7 @@ router.get('/review/:restaurant_id', async (req, res) => {
       return;
     }
 
+    // res.send({ reviews });
     res.render('reviewsPerRestaurant', {
       layout: 'main',
       reviews,
