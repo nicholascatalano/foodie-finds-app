@@ -1,6 +1,6 @@
 <div class='homepage-container'>
-  <h2 class='reviews-title'>Reviews</h2>
-  <ul class='nav-list'>
+  <h2 class='reviews-title'>Reviews for {{this.restaurant}}</h2>
+  {{!-- <ul class='nav-list'>
     <li class='nav-item new-post-button'><a href='/new' class='nav-link'>Create
         New Post</a></li>
   </ul>
@@ -9,9 +9,7 @@
     <ul class='reviews-list'>
       {{#each reviews}}
         <li>
-          <h3 class='review-restaurant'><a
-              href='/api/review/{{this.restaurant_id}}'
-            >{{this.restaurant}}</a>
+          <h3 class='review-restaurant'><a href=''>{{this.restaurant}}</a>
             in
             {{this.city}}</h3>
           <p class='review-rating'>Rating: {{this.rating}}/5</p>
@@ -19,5 +17,5 @@
         </li>
       {{/each}}
     </ul>
-  </div>
+  </div> --}}
 </div>

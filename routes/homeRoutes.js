@@ -51,4 +51,30 @@ router.get('/new', withAuth, async (req, res) => {
   }
 });
 
+// GET all reviews given a restaurant id (foreign key of Restaurant model)
+router.get('/review/:restaurant_id', async (req, res) => {
+  try {
+    const reviewData = await Review.findAll({
+      where: {
+        restaurant_id: req.params.restaurant_id,
+      },
+    });
+
+    const reviews = reviewData.map((review) => review.get({ plain: true }));
+
+    if (!reviewData) {
+      res.status(404).json({ message: 'No restaurant found with this id!' });
+      return;
+    }
+
+    res.render('reviewsPerRestaurant', {
+      layout: 'dashboard',
+      reviews,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
