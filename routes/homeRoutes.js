@@ -68,7 +68,7 @@ router.get('/review/:restaurant_id', async (req, res) => {
     }
 
     res.render('reviewsPerRestaurant', {
-      layout: 'dashboard',
+      layout: 'main',
       reviews,
       loggedIn: req.session.loggedIn,
     });
