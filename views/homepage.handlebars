@@ -83,10 +83,11 @@
         <label for='one-star'> 1-star</label>
 
       </form>
+      <input class='apply-filters' type='submit' value='Apply filters' />
     </aside>
     <ul class='reviews-list'>
       {{#each reviews}}
-        <li>
+        <li class='review-card'>
           <h3 class='review-restaurant'><a
               href='/review/{{this.restaurant_id}}'
             >{{this.restaurant}}</a>
@@ -94,7 +95,7 @@
             {{this.city}}</h3>
           <p class='review-rating'>Rating: {{this.rating}}/5</p>
           <p class='review-content'>{{this.content}}</p>
-          <p>Review by: {{user.username}}</p>
+          <p class='review-author'>Review by: {{user.username}}</p>
         </li>
       {{/each}}
     </ul>
