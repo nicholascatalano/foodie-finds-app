@@ -54,7 +54,6 @@ router.get('/?', async (req, res) => {
         };
       });
       arrType.push({ sub_categories: { [Op.like]: `%%` } }); //add it if restaurants sub_categories is empty
-      console.log(arrType);
       typeProperty = { [Op.or]: arrType };
     }
 
