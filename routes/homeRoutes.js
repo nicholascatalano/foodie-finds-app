@@ -83,4 +83,10 @@ router.get('/review/:restaurant_id', withAuth, async (req, res) => {
   }
 });
 
+// GET about us route:
+router.get('/aboutus', (req, res) => {
+  // render about us page
+  res.render('aboutus', { layout: false });
+});
+
 module.exports = router;
