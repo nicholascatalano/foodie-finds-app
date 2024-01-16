@@ -58,6 +58,7 @@ router.get('/review/:restaurant_id', withAuth, async (req, res) => {
       where: {
         restaurant_id: req.params.restaurant_id,
       },
+      include: [User],
     });
 
     const reviews = reviewData.map((review) => review.get({ plain: true }));
