@@ -59,8 +59,8 @@ const filterFormHandler = async (event) => {
   console.log(apiEndpoint);
   // move user to /filter page to display filtered results
   if (response.ok) {
-    console.log(response);
-    //   document.location.replace('/filter');
+    // console.log(response);
+    document.location.replace('/filter');
   } else {
     alert('Failed to filter results!');
   }
