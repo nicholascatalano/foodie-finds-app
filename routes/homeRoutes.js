@@ -45,7 +45,7 @@ router.get('/signup', (req, res) => {
 // GET new review route
 router.get('/new', withAuth, async (req, res) => {
   try {
-    res.render('newReview', { layout: 'main' });
+    res.render('newReview', { loggedIn: req.session.loggedIn, layout: 'main' });
   } catch (err) {
     res.status(500).json(err);
   }
