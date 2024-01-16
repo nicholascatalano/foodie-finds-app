@@ -32,7 +32,8 @@ aside {
   border-radius: 4px;
   box-sizing: border-box;
 }
-.submit-button, .apply-filters {
+.submit-button,
+.apply-filters {
   background-color: #ffbf69;
   color: white;
   border: none;
@@ -43,7 +44,7 @@ aside {
   cursor: pointer;
 }
 
-.submit-button:hover, 
+.submit-button:hover,
 .apply-filters:hover {
   background-color: #adcfa6;
 }
@@ -182,4 +183,20 @@ aside {
 }
 #type {
   width: 150px;
+}
+.reviews-list li {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  margin-bottom: 15px;
+  list-style-type: none;
+}
+.review-rating {
+  color: #666;
+  margin-bottom: 10px;
+}
+.review-content {
+  color: #333;
 }
