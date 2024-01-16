@@ -6,38 +6,76 @@ const { Restaurant } = require('../models');
 //GET restaurants which match the applied filters by user -> end point api/restaurants/filter/restaurants/by
 router.get('/?', async (req, res) => {
   try {
+    console.log('you hit me');
     //query can look with one or all
     //name=&cuisine=&price_range=&rating=&city=&type=
-    console.log(req.query);
+    let cuisineProperty;
+    let nameProperty;
+    let priceProperty;
+    let filteredRestaurants;
+    let typeProperty;
+    let arrType;
 
-    //building the sequelize literal to filter restaurants
-    //expected will be cuisine=american,sushi,latin
-    const arrCuisine = req.query.cuisine.split(',');
-    let cuisineProperty = "'%" + arrCuisine[0] + "%'"; //let the first element of the array
-    for (i = 1; i < arrCuisine.length; i++) {
-      cuisineProperty += ' OR cuisine LIKE ' + "'%" + arrCuisine[i] + "%'";
+    //city is always provided
+    const cityProperty = { city: { [Op.like]: `%${req.query.city}%` } };
+
+    //if the person provided cuisine
+    if (req.query.cuisine) {
+      const arrCuisine = req.query.cuisine.split(',').map((cuisineItem) => {
+        return {
+          cuisine: { [Op.like]: `%${cuisineItem}%` },
+        };
+      });
+      cuisineProperty = { [Op.or]: arrCuisine };
     }
 
-    const filteredRestaurants = await Restaurant.findAll({
+    //if a restaurant name is provided
+    if (req.query.name) {
+      nameProperty = { name: { [Op.like]: `'%${req.query.name}%'` } };
+    }
+
+    //if price_level is provided by the user
+    if (req.query.price_level) {
+      //the user can provide more than one input
+      const arrPrice = req.query.price_level.split(',').map((priceItem) => {
+        return {
+          price_level: { [Op.like]: `%${priceItem}%` },
+        };
+      });
+      priceProperty = { [Op.or]: arrPrice };
+    }
+
+    //if type of restaurant is provided
+    if (req.query.type) {
+      //options are sit_down, quick_bites, cafe, etc.
+      arrType = req.query.type.split(',').map((type) => {
+        return {
+          sub_categories: { [Op.like]: `%${type}%` },
+        };
+      });
+      arrType.push({ sub_categories: { [Op.like]: `%%` } }); //add it if restaurants sub_categories is empty
+      typeProperty = { [Op.or]: arrType };
+    }
+
+    //search with the filters provided by the user
+    filteredRestaurants = await Restaurant.findAll({
       where: {
         [Op.and]: [
-          { name: { [Op.like]: sequelize.literal(`'%${req.query.name}%'`) } },
-          {
-            cuisine: {
-              [Op.like]: sequelize.literal(`${cuisineProperty}`),
-            },
-          },
+          cityProperty,
+          nameProperty,
+          cuisineProperty,
+          priceProperty,
+          typeProperty,
         ],
-        // { price_range: req.query.price_range || '' },
-        // { city: req.query.city || '' },
-        // { type: req.query.type || '' },
       },
     });
+
     const restaurants = filteredRestaurants.map((rest) =>
       rest.get({ plain: true })
     );
 
     res.status(200).json(restaurants);
+    // res.status(200).json(req.query);
   } catch (err) {
     res.status(500).json(err);
   }

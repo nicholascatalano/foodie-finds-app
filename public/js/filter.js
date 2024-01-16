@@ -50,19 +50,20 @@ const filterFormHandler = async (event) => {
   }
 
   // fetch request to api using api endpoint
-  // const response = await fetch(apiEndpoint, {
-  //   method: 'GET',
-  //   headers: {
-  //     'Content-Type': 'application/json',
-  //   },
-  // });
+  const response = await fetch(apiEndpoint, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
   console.log(apiEndpoint);
   // move user to /filter page to display filtered results
-  // if (response.ok) {
-  //   document.location.replace('/filter');
-  // } else {
-  //   alert('Failed to filter results!');
-  // }
+  if (response.ok) {
+    console.log(response);
+    //   document.location.replace('/filter');
+  } else {
+    alert('Failed to filter results!');
+  }
 };
 
 document
