@@ -32,7 +32,7 @@ aside {
   border-radius: 4px;
   box-sizing: border-box;
 }
-.submit-button {
+.submit-button, .apply-filters {
   background-color: #ffbf69;
   color: white;
   border: none;
@@ -43,7 +43,8 @@ aside {
   cursor: pointer;
 }
 
-.submit-button:hover {
+.submit-button:hover, 
+.apply-filters:hover {
   background-color: #adcfa6;
 }
 
@@ -178,4 +179,7 @@ aside {
 .new-post-button {
   display: flex;
   float: right;
+}
+#type {
+  width: 150px;
 }

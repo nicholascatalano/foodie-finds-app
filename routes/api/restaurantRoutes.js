@@ -1,4 +1,6 @@
 const router = require('express').Router();
+const { Op } = require('sequelize');
+const sequelize = require('../../config/connection');
 const { User, Review, Restaurant } = require('../../models');
 const apiKey = process.env.DB_API_KEY; //api key for external API
 
@@ -84,4 +86,5 @@ router.get('/search/get_details/:location_id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 module.exports = router;
