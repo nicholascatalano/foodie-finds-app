@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Review } = require('../models');
+const { User, Review, Restaurant } = require('../models');
 const withAuth = require('../utils/auth');
 
 // GET all reviews for homepage
@@ -51,7 +51,7 @@ router.get('/new', withAuth, async (req, res) => {
   }
 });
 
-// GET all reviews given a restaurant id (foreign key of Restaurant model)
+// GET all Reviews, GET Restaurant by PK, given a restaurant id
 router.get('/review/:restaurant_id', withAuth, async (req, res) => {
   try {
     const reviewData = await Review.findAll({
@@ -63,14 +63,18 @@ router.get('/review/:restaurant_id', withAuth, async (req, res) => {
     const reviews = reviewData.map((review) => review.get({ plain: true }));
 
     if (!reviewData) {
-      res.status(404).json({ message: 'No restaurant found with this id!' });
+      res.status(404).json({ message: 'No reviews found!' });
       return;
     }
+
+    const restaurantData = await Restaurant.findByPk(req.params.restaurant_id);
+    const restaurant = restaurantData.get({ plain: true });
 
     // res.send({ reviews });
     res.render('reviewsPerRestaurant', {
       layout: 'main',
       reviews,
+      restaurant,
       loggedIn: req.session.loggedIn,
     });
   } catch (err) {
