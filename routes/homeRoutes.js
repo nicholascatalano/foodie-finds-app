@@ -9,10 +9,22 @@ router.get('/', async (req, res) => {
       include: [User],
     });
     const reviews = reviewData.map((review) => review.get({ plain: true }));
+
+    //grab all restaurants for filters section
+    const restaurantData = await Restaurant.findAll();
+    const restaurants = restaurantData.map((restaurant) =>
+      restaurant.get({ plain: true })
+    );
+    //grab cuisine from each restaurant
+    const cuisineData = restaurants.map((rest) => rest.cuisine);
+    const cuisine = cuisineData.toString().split(',');
+    const cuisineOptions = [...new Set(cuisine)]; //remove duplicates
+
     // render on allPosts view
     res.render('homepage', {
       reviews,
       loggedIn: req.session.loggedIn,
+      cuisineOptions,
     });
   } catch (err) {
     res.status(500).json(err);
