@@ -1,0 +1,24 @@
+<div class='homepage-container'>
+  {{#each restaurants as |restaurant|}}
+    <h2 class='reviews-title'>Review Results for {{restaurant.name}} Below</h2>
+
+    <ul class='nav-list'>
+      <li class='nav-item new-post-button'><a
+          href='/new'
+          class='nav-link'
+        >Create New Review for
+          {{restaurant.name}}</a></li>
+    </ul>
+    {{#each reviews}}
+      <div class='reviews-section'>
+        <ul class='reviews-list'>
+          <li>
+            <p class='review-rating'>Rating: {{rating}}/5</p>
+            <p class='review-content'>{{content}}</p>
+            <p>Review by: {{user.username}}</p>
+          </li>
+        </ul>
+      </div>
+    {{/each}}
+  {{/each}}
+</div>
