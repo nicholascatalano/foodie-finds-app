@@ -6,13 +6,17 @@ const { Restaurant } = require('../models');
 //GET restaurants which match the applied filters by user -> end point api/restaurants/filter/restaurants/by
 router.get('/?', async (req, res) => {
   try {
+    console.log('you hit me');
     //query can look with one or all
     //name=&cuisine=&price_range=&rating=&city=&type=
-    console.log(req.query);
-
     //building the sequelize literal to filter restaurants
     //expected will be cuisine=american,sushi,latin
-    const arrCuisine = req.query.cuisine.split(',');
+    const arrCuisine = req.query.cuisine.split(',').map((cuisineItem) => {
+      return {
+        cuisine: { [Op.like]: `%${cuisineItem}%` },
+      };
+    });
+
     let cuisineProperty = "'%" + arrCuisine[0] + "%'"; //let the first element of the array
     for (i = 1; i < arrCuisine.length; i++) {
       cuisineProperty += ' OR cuisine LIKE ' + "'%" + arrCuisine[i] + "%'";
@@ -20,12 +24,11 @@ router.get('/?', async (req, res) => {
 
     const filteredRestaurants = await Restaurant.findAll({
       where: {
+        // cuisine: { [Op.like]: '%sushi%' },
         [Op.and]: [
-          { name: { [Op.like]: sequelize.literal(`'%${req.query.name}%'`) } },
+          // { name: { [Op.like]: '%Nobu%' } },
           {
-            cuisine: {
-              [Op.like]: sequelize.literal(`${cuisineProperty}`),
-            },
+            [Op.or]: arrCuisine,
           },
         ],
         // { price_range: req.query.price_range || '' },
