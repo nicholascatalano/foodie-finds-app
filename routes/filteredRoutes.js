@@ -12,11 +12,10 @@ router.get('/?', async (req, res) => {
     let cuisineProperty = {};
     let filteredRestaurants;
     let nameProperty;
-    let arrCuisine;
 
     if (req.query.cuisine) {
       //if the person provided cuisine
-      arrCuisine = req.query.cuisine.split(',').map((cuisineItem) => {
+      const arrCuisine = req.query.cuisine.split(',').map((cuisineItem) => {
         return {
           cuisine: { [Op.like]: `%${cuisineItem}%` },
         };
@@ -24,12 +23,17 @@ router.get('/?', async (req, res) => {
       cuisineProperty = { [Op.or]: arrCuisine };
     }
 
+    //if a restaurant name is provided
+    if (req.query.name) {
+      nameProperty = { name: { [Op.like]: `'%${req.query.name}%'` } };
+    }
+
     //search with the filters provided by the user
     filteredRestaurants = await Restaurant.findAll({
       where: {
         // cuisine: { [Op.like]: '%sushi%' },
         [Op.and]: [
-          { name: { [Op.like]: '%Nobu%' } },
+          nameProperty,
           cuisineProperty,
           // { price_level: req.query.price_range || '' },
           // { city: req.query.city || '' },
