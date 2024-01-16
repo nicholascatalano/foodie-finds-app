@@ -75,14 +75,11 @@ router.get('/?', async (req, res) => {
       rest.get({ plain: true })
     );
 
-    //get the reviews for each restaurant
-    const reviews = restaurants.map((restaurant) => restaurant.reviews);
-    console.log(restaurants);
     // res.status(200).json(restaurants);
     res.status(200).render('filter', {
       layout: 'main',
       restaurants,
-      reviews,
+      // reviews,
       loggedIn: req.session.loggedIn,
     });
     // res.status(200).json(req.query);
