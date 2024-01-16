@@ -9,12 +9,15 @@ router.get('/?', async (req, res) => {
     console.log('you hit me');
     //query can look with one or all
     //name=&cuisine=&price_range=&rating=&city=&type=
-    let cuisineProperty = {};
+    let cuisineProperty;
     let filteredRestaurants;
     let nameProperty;
 
+    //city is always provided
+    const cityProperty = { city: { [Op.like]: `%${req.query.city}%` } };
+
+    //if the person provided cuisine
     if (req.query.cuisine) {
-      //if the person provided cuisine
       const arrCuisine = req.query.cuisine.split(',').map((cuisineItem) => {
         return {
           cuisine: { [Op.like]: `%${cuisineItem}%` },
@@ -33,6 +36,7 @@ router.get('/?', async (req, res) => {
       where: {
         // cuisine: { [Op.like]: '%sushi%' },
         [Op.and]: [
+          cityProperty,
           nameProperty,
           cuisineProperty,
           // { price_level: req.query.price_range || '' },
