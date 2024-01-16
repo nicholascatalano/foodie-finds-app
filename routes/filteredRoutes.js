@@ -21,6 +21,7 @@ router.get('/?', async (req, res) => {
     const filteredRestaurants = await Restaurant.findAll({
       where: {
         [Op.and]: [
+          { name: { [Op.like]: sequelize.literal(`'%${req.query.name}%'`) } },
           {
             cuisine: {
               [Op.like]: sequelize.literal(`${cuisineProperty}`),
