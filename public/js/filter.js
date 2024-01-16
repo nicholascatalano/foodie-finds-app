@@ -45,18 +45,18 @@ const filterFormHandler = async (event) => {
     apiEndpoint += `&rating=${ratingOptions}`;
   }
 
-  //   const response = await fetch(apiEndpoint, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //   });
+  const response = await fetch(apiEndpoint, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
   console.log(apiEndpoint);
-  //   if (response.ok) {
-  //     document.location.replace('/filter'); // reloads page to filter page if successful
-  //   } else {
-  //     alert('Failed to filter results!');
-  //   }
+  if (response.ok) {
+    document.location.replace('/filter'); // reloads page to filter page if successful
+  } else {
+    alert('Failed to filter results!');
+  }
 };
 
 document
