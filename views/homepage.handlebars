@@ -5,110 +5,172 @@
         New Post</a></li>
   </ul>
   <div class='reviews-section'>
-    <aside id ='filters'>
-      <input class = 'apply-filters' type='submit' value='Apply filters'>
-      <form id = 'type'> 
+    <aside id='filters' class='filter-section'>
+      <form id='type' class='filter-form'>
         <h4>Type:</h4>
-        <input type='checkbox' id='sit-down' name='sit-down' value='sit-down' />
-        <label for='sit-down'> Sit-down</label><br />
-        <input
-          type='checkbox'
-          id='quick-bites'
-          name='quick-bites'
-          value='quick-bites'
-        />
-        <label for='quick-bites'> Quick bites</label><br />
-        <input type='checkbox' id='cafe' name='cafe' value='cafe' />
-        <label for='cafe'> Cafe</label>
-      
+        <label class='checkbox-container'>Sit-down
+          <input
+            type='checkbox'
+            id='sit-down'
+            name='sit-down'
+            value='sit-down'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>Quick bites
+          <input
+            type='checkbox'
+            id='quick-bites'
+            name='quick-bites'
+            value='quick-bites'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>Cafe
+          <input type='checkbox' id='cafe' name='cafe' value='cafe' />
+          <span class='checkmark'></span>
+        </label>
+
         <h4>Cuisine:</h4>
-        <input type='checkbox' id='mexican' name='mexican' value='mexican' />
-        <label for='mexican'> Mexican</label><br />
-        <input
-          type='checkbox'
-          id='vietnamese'
-          name='vietnamese'
-          value='vietnamese'
-        />
-        <label for='vietnamese'> Vietnamese</label><br />
-        <input type='checkbox' id='american' name='american' value='american' />
-        <label for='american'> American</label><br />
-        <input type='checkbox' id='indian' name='indian' value='indian' />
-        <label for='indian'> Indian</label>
-      
+        <label class='checkbox-container'>Mexican
+          <input type='checkbox' id='mexican' name='mexican' value='mexican' />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>Vietnamese
+          <input
+            type='checkbox'
+            id='vietnamese'
+            name='vietnamese'
+            value='vietnamese'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>American
+          <input
+            type='checkbox'
+            id='american'
+            name='american'
+            value='american'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>Indian
+          <input type='checkbox' id='indian' name='indian' value='indian' />
+          <span class='checkmark'></span>
+        </label>
+
         <h4>Price Range:</h4>
-        <input type='checkbox' id='cheap' name='cheap' value='cheap' />
-        <label for='cheap'> $</label><br />
-        <input
-          type='checkbox'
-          id='affordable'
-          name='affordable'
-          value='affordable'
-        />
-        <label for='affordable'> $$</label><br />
-        <input type='checkbox' id='fancy' name='fancy' value='fancy' />
-        <label for='fancy'> $$$</label><br />
-        <input type='checkbox' id='premium' name='premium' value='premium' />
-        <label for='premium'> $$$$</label>
-     
+        <label class='checkbox-container'>$
+          <input type='checkbox' id='cheap' name='cheap' value='cheap' />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>$$
+          <input
+            type='checkbox'
+            id='affordable'
+            name='affordable'
+            value='affordable'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>$$$
+          <input type='checkbox' id='fancy' name='fancy' value='fancy' />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>$$$$
+          <input type='checkbox' id='premium' name='premium' value='premium' />
+          <span class='checkmark'></span>
+        </label>
+
         <h4>Rating:</h4>
-        <input
-          type='checkbox'
-          id='five-star'
-          name='five-star'
-          value='five-star'
-        />
-        <label for='five-star'> 5-star</label><br />
-        <input
-          type='checkbox'
-          id='four-star'
-          name='four-star'
-          value='four-star'
-        />
-        <label for='four-star'> 4-star</label><br />
-        <input
-          type='checkbox'
-          id='three-star'
-          name='three-star'
-          value='three-star'
-        />
-        <label for='three-star'> 3-star</label><br />
-        <input type='checkbox' id='two-star' name='two-star' value='two-star' />
-        <label for='two-star'> 2-star</label><br />
-        <input type='checkbox' id='one-star' name='one-star' value='one-star' />
-        <label for='one-star'> 1-star</label>
-      
+        <label class='checkbox-container'>5-star
+          <input
+            type='checkbox'
+            id='five-star'
+            name='five-star'
+            value='five-star'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>4-star
+          <input
+            type='checkbox'
+            id='four-star'
+            name='four-star'
+            value='four-star'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>3-star
+          <input
+            type='checkbox'
+            id='three-star'
+            name='three-star'
+            value='three-star'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>2-star
+          <input
+            type='checkbox'
+            id='two-star'
+            name='two-star'
+            value='two-star'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>1-star
+          <input
+            type='checkbox'
+            id='one-star'
+            name='one-star'
+            value='one-star'
+          />
+          <span class='checkmark'></span>
+        </label>
+
         <h4>City:</h4>
-        <input
-          type='checkbox'
-          id='new-york'
-          name='new-york'
-          value='five-starnew-york'
-        />
-        <label for='new-york'> New York</label><br />
-        <input type='checkbox' id='miami' name='miami' value='miami' />
-        <label for='miami'> Miami</label><br />
-        <input
-          type='checkbox'
-          id='los-angeles'
-          name='los-angeles'
-          value='los-angeles'
-        />
-        <label for='los-angeles'> Los Angeles</label><br />
-        <input
-          type='checkbox'
-          id='san-francisco'
-          name='san-francisco'
-          value='san-francisco'
-        />
-        <label for='san-francisco'> San Francisco</label><br />
-        <input type='checkbox' id='chicago' name='chicago' value='chicago' />
-        <label for='chicago'> Chicago</label>
+        <label class='checkbox-container'>New York
+          <input
+            type='checkbox'
+            id='new-york'
+            name='new-york'
+            value='new-york'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>Miami
+          <input type='checkbox' id='miami' name='miami' value='miami' />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>Los Angeles
+          <input
+            type='checkbox'
+            id='los-angeles'
+            name='los-angeles'
+            value='los-angeles'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>San Francisco
+          <input
+            type='checkbox'
+            id='san-francisco'
+            name='san-francisco'
+            value='san-francisco'
+          />
+          <span class='checkmark'></span>
+        </label>
+        <label class='checkbox-container'>Chicago
+          <input type='checkbox' id='chicago' name='chicago' value='chicago' />
+          <span class='checkmark'></span>
+        </label>
       </form>
+      <input class='apply-filters' type='submit' value='Apply filters' />
     </aside>
     <ul class='reviews-list'>
       {{#each reviews}}
-        <li>
+        <li class='review-card'>
           <h3 class='review-restaurant'><a
               href='/review/{{this.restaurant_id}}'
             >{{this.restaurant}}</a>
@@ -116,7 +178,7 @@
             {{this.city}}</h3>
           <p class='review-rating'>Rating: {{this.rating}}/5</p>
           <p class='review-content'>{{this.content}}</p>
-          <p>Review by: {{user.username}}</p>
+          <p class='review-author'>Review by: {{user.username}}</p>
         </li>
       {{/each}}
     </ul>
