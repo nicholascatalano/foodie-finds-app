@@ -8,36 +8,49 @@ router.get('/?', async (req, res) => {
   try {
     //query can look with one or all
     //name=&cuisine=&price_range=&rating=&city=&type=
-    console.log(req.query);
+    let cuisineProperty;
+    let filteredRestaurants;
+    let nameProperty;
 
-    //building the sequelize literal to filter restaurants
-    //expected will be cuisine=american,sushi,latin
-    const arrCuisine = req.query.cuisine.split(',');
-    let cuisineProperty = "'%" + arrCuisine[0] + "%'"; //let the first element of the array
-    for (i = 1; i < arrCuisine.length; i++) {
-      cuisineProperty += ' OR cuisine LIKE ' + "'%" + arrCuisine[i] + "%'";
+    if (req.query.cuisine && req.query.name) {
+      //if the person provided cuisine
+      //expected will be something like cuisine=american,sushi,latin and will need to break it up in an array
+      const arrCuisine = req.query.cuisine.split(',');
+      cuisineProperty = "'%" + arrCuisine[0] + "%'"; //let the first element of the array
+      for (i = 1; i < arrCuisine.length; i++) {
+        cuisineProperty += ' OR cuisine LIKE ' + "'%" + arrCuisine[i] + "%'";
+      }
+
+      //if the user provided the name of the restaurant
+      nameProperty = req.query.name;
+      console.log(nameProperty);
     }
 
-    const filteredRestaurants = await Restaurant.findAll({
+    //if statement depending on what the user provided
+
+    filteredRestaurants = await Restaurant.findAll({
       where: {
         [Op.and]: [
-          { name: { [Op.like]: sequelize.literal(`'%${req.query.name}%'`) } },
+          // { name: { [Op.like]: sequelize.literal(`'%${req.query.name}%'`) } },
+          { name: req.query.name },
           {
             cuisine: {
               [Op.like]: sequelize.literal(`${cuisineProperty}`),
             },
           },
+          // { price_level: req.query.price_range || '' },
+          // { city: req.query.city || '' },
+          // { sub_categories: req.query.type || '' },
         ],
-        // { price_range: req.query.price_range || '' },
-        // { city: req.query.city || '' },
-        // { type: req.query.type || '' },
       },
     });
+
     const restaurants = filteredRestaurants.map((rest) =>
       rest.get({ plain: true })
     );
 
     res.status(200).json(restaurants);
+    // res.status(200).json(req.query);
   } catch (err) {
     res.status(500).json(err);
   }
