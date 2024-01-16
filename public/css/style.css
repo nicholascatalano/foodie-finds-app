@@ -200,3 +200,51 @@ aside {
 .review-content {
   color: #333;
 }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+.new-review-container {
+  background-color: #cbf3f0;
+  width: 90%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.new-review-title {
+  text-align: center;
+  color: #2ec4b6;
+  margin-bottom: 20px;
+}
+.new-review-form {
+  display: flex;
+  flex-direction: column;
+}
+.new-review-form .form-label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+.new-review-form .form-input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.create-button {
+  background-color: #ffbf69;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.create-button:hover {
+  background-color: #e6a157;
+}
