@@ -18,7 +18,14 @@ router.get('/', async (req, res) => {
     //grab cuisine from each restaurant
     const cuisineData = restaurants.map((rest) => rest.cuisine);
     const cuisine = cuisineData.toString().split(',');
-    const cuisineOptions = [...new Set(cuisine)]; //remove duplicates
+    const cuisineUnique = [...new Set(cuisine)]; //remove duplicates
+    //capitalize first letter
+    let cuisineOptions = [];
+    for (let i = 0; i < cuisineUnique.length; i++) {
+      const word = cuisineUnique[i].split('');
+      word[0] = word[0].toUpperCase();
+      cuisineOptions.push(word.join(''));
+    }
 
     // render on allPosts view
     res.render('homepage', {
