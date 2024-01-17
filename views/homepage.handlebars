@@ -2,12 +2,12 @@
   <h2 class='reviews-title'>Reviews</h2>
   <ul class='nav-list'>
     <li class='nav-item new-post-button'><a href='/new' class='nav-link'>Create
-        New Post</a></li>
+        New Review</a></li>
   </ul>
   <div class='reviews-section'>
     <aside id='filters'>
       <form id='filterSubmit'>
-        <button class='apply-filters' type='submit'>Apply Filters</button>
+        
 
         <h4>City:</h4>
         <input type='text' id='city-input' required />
@@ -58,8 +58,8 @@
         <input type='checkbox' id='one-star' name='ratingOptions' value='1' />
         <label for='one-star'> 1-star</label>
 
+        <button class='apply-filters' type='submit'>Apply Filters</button>
       </form>
-      <input class='apply-filters' type='submit' value='Apply filters' />
     </aside>
     <ul class='reviews-list'>
       {{#each reviews}}
