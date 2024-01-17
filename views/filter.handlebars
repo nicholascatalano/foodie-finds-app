@@ -1,22 +1,18 @@
 <div class='homepage-container'>
   {{! <h1>show filtered results here</h1> }}
   {{#each restaurants as |restaurant|}}
-    <h2 class='reviews-title'>Reviews for {{restaurant.name}}</h2>
-
-    <ul class='nav-list'>
-      <li class='nav-item new-post-button'><a
-          href='/new'
-          class='nav-link'
-        >Create New Review for
-          {{restaurant.name}}</a></li>
-    </ul>
+    <div class='reviews-header'>
+      <h2 class='reviews-title'>Reviews for {{restaurant.name}}</h2>
+      <a href='/new' class='create-new-button'>Create New Review for
+        {{restaurant.name}}</a>
+    </div>
     {{#each users}}
       <div class='reviews-section'>
         <ul class='reviews-list'>
-          <li>
+          <li class='review-item'>
             <p class='review-rating'>Rating: {{review.rating}}/5</p>
             <p class='review-content'>{{review.content}}</p>
-            <p>Review by: {{username}}</p>
+            <p class='review-author'>Review by: {{username}}</p>
           </li>
         </ul>
       </div>

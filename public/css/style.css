@@ -7,7 +7,7 @@ aside {
 }
 
 .login-container {
-  background-color: #cbf3f0;
+  background-color: #f0f0f0;
   width: 300px;
   margin: 100px auto;
   padding: 20px;
@@ -19,7 +19,7 @@ aside {
 }
 .login-title {
   text-align: center;
-  color: #2ec4b6;
+  color: #ff7f50;
 }
 .form-group {
   margin-bottom: 15px;
@@ -34,7 +34,7 @@ aside {
 }
 .submit-button,
 .apply-filters {
-  background-color: #ffbf69;
+  background-color: #2ecc71;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -46,7 +46,7 @@ aside {
 
 .submit-button:hover,
 .apply-filters:hover {
-  background-color: #adcfa6;
+  background-color: #ff9500;
 }
 
 .signup-link {
@@ -54,20 +54,19 @@ aside {
   margin-top: 15px;
 }
 .signup-link a {
-  color: #ffbf69;
+  color: #2ecc71;
   text-decoration: none;
   font-weight: bold;
 }
 .signup-link a:hover {
-  color: #e6a157;
+  color: #ff9500;
 }
 .homepage-container {
   text-align: center;
   padding: 50px;
-  background-color: #cbf3f0;
 }
 .homepage-title {
-  color: #2ec4b6;
+  color: #ff7f50;
   margin-bottom: 20px;
 }
 .nav-list {
@@ -80,7 +79,7 @@ aside {
 }
 .nav-link,
 .logout-button {
-  background-color: #ffbf69;
+  background-color: #2ecc71;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -91,22 +90,22 @@ aside {
 }
 .nav-link:hover,
 .logout-button:hover {
-  background-color: #adcfa6;
+  background-color: #ff9500;
 }
 .login-redirect {
   color: #2ec4b6;
   font-size: 16px;
 }
 .login-redirect a {
-  color: #ffbf69;
+  color: #2ecc71;
   text-decoration: none;
   font-weight: bold;
 }
 .login-redirect a:hover {
-  color: #e6a157;
+  color: #ff9500;
 }
 .signup-container {
-  background-color: #cbf3f0;
+  background-color: #f0f0f0;
   width: 300px;
   margin: 100px auto;
   padding: 20px;
@@ -118,7 +117,7 @@ aside {
 }
 .signup-title {
   text-align: center;
-  color: #2ec4b6;
+  color: #ff7f50;
 }
 .login-link {
   text-align: center;
@@ -126,16 +125,16 @@ aside {
 }
 
 .login-link a {
-  color: #ffbf69;
+  color: #2ecc71;
   text-decoration: none;
   font-weight: bold;
 }
 
 .login-link a:hover {
-  color: #e6a157;
+  color: #ff9500;
 }
 .gradient-background {
-  background: linear-gradient(135deg, #adcfa6, #cbf3f0);
+  background: linear-gradient(135deg, #b2bec3, #f0f0f0);
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -145,10 +144,6 @@ aside {
   margin-top: 30px;
   display: flex;
 }
-.reviews-title {
-  color: #2ec4b6;
-  text-align: center;
-}
 
 .reviews-list {
   list-style-type: none;
@@ -156,7 +151,7 @@ aside {
 }
 
 .review-item {
-  background-color: #cbf3f0;
+  background-color: #f0f0f0;
   border-radius: 8px;
   padding: 15px;
   margin-bottom: 15px;
@@ -164,13 +159,13 @@ aside {
 }
 
 .review-restaurant {
-  color: #ffbf69;
+  color: #ff7f50;
   margin-bottom: 5px;
 }
 
 .review-rating,
 .review-content {
-  color: #333;
+  color: #303030;
 }
 
 .review-rating {
@@ -198,14 +193,15 @@ aside {
   margin-bottom: 10px;
 }
 .review-content {
-  color: #333;
+  color: #303030;
 }
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
+  background: linear-gradient(135deg, #b2bec3, #f0f0f0);
 }
 .new-review-container {
-  background-color: #cbf3f0;
+  background-color: #f0f0f0;
   width: 90%;
   max-width: 500px;
   margin: 40px auto;
@@ -215,7 +211,7 @@ body {
 }
 .new-review-title {
   text-align: center;
-  color: #2ec4b6;
+  color: #ff7f50;
   margin-bottom: 20px;
 }
 .new-review-form {
@@ -225,7 +221,7 @@ body {
 .new-review-form .form-label {
   margin-bottom: 5px;
   font-weight: bold;
-  color: #333;
+  color: #303030;
 }
 .new-review-form .form-input {
   width: 100%;
@@ -235,7 +231,7 @@ body {
   border-radius: 4px;
 }
 .create-button {
-  background-color: #ffbf69;
+  background-color: #2ecc71;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -246,23 +242,11 @@ body {
 }
 
 .create-button:hover {
-  background-color: #e6a157;
+  background-color: #ff9500;
 }
 
-.create-new-button {
-  display: block;
-  background-color: #ffbf69;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 4px;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-.create-new-button:hover {
-  background-color: #e6a157;
-}
 .user-reviews-title {
-  color: #2ec4b6;
+  color: #ff7f50;
   margin-bottom: 0;
   flex-grow: 1;
   text-align: left;
@@ -288,7 +272,7 @@ body {
 }
 
 .review-restaurant {
-  color: #ffbf69;
+  color: #2ecc71;
   margin-bottom: 5px;
   font-weight: bold;
 }
@@ -300,7 +284,7 @@ body {
 }
 
 .review-content {
-  color: #555555;
+  color: #303030;
 }
 .reviews-header {
   display: flex;
@@ -309,9 +293,9 @@ body {
   margin-bottom: 20px;
 }
 .filter-section {
-  background-color: #cbf3f0;
-  padding: 20px;
-  margin-right: 20px;
+  background-color: #f0f0f0;
+  padding: 15px;
+  margin-right: 15px;
   border-radius: 8px;
 }
 
@@ -321,16 +305,16 @@ body {
 }
 
 .filter-category {
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .checkbox-container {
   display: block;
   position: relative;
-  padding-left: 35px;
-  margin-bottom: 12px;
+  padding-left: 30px;
+  margin-bottom: 6px;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 16px;
   user-select: none;
 }
 
@@ -346,9 +330,10 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  height: 25px;
-  width: 25px;
+  height: 20px;
+  width: 20px;
   background-color: #eee;
+  border: 2px solid #cccccc;
   border-radius: 4px;
 }
 
@@ -357,7 +342,7 @@ body {
 }
 
 .checkbox-container input:checked ~ .checkmark {
-  background-color: #2ec4b6;
+  background-color: #2ecc71;
 }
 
 .checkmark:after {
@@ -371,20 +356,20 @@ body {
 }
 
 .checkbox-container .checkmark:after {
-  left: 9px;
-  top: 5px;
-  width: 5px;
-  height: 10px;
+  left: 7px;
+  top: 3px;
+  width: 4px;
+  height: 8px;
   border: solid white;
-  border-width: 0 3px 3px 0;
+  border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
 
 .apply-filters {
-  background-color: #ffbf69;
+  background-color: #2ecc71;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 8px 15px;
   border-radius: 4px;
   cursor: pointer;
   font-weight: bold;
@@ -393,10 +378,78 @@ body {
 }
 
 .apply-filters:hover {
-  background-color: #e6a157;
+  background-color: #ff9500;
 }
 
 #createNewReviewBtn {
-  position: fixed;
-  margin-top: -240px;
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 10px;
+}
+#createNewReviewBtn:hover {
+  background-color: #ff9500;
+}
+.reviews-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.reviews-title {
+  color: #ff7f50;
+  margin-bottom: 10px;
+}
+
+.create-new-button {
+  background-color: #2ecc71;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+  text-decoration: none;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.create-new-button:hover {
+  background-color: #ff9500;
+}
+.reviews-title-section {
+  text-align: center;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 165px;
+}
+.info-card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  margin: 20px auto;
+  max-width: 60%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.centered-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: auto;
+}
+.homepage-title {
+  color: #ff7f50;
+}
+.title-container {
+  position: absolute;
+  top: 0;
+  left: 10px;
+  padding-top: 5px;
 }
