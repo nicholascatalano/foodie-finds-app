@@ -395,3 +395,8 @@ body {
 .apply-filters:hover {
   background-color: #e6a157;
 }
+
+#createNewReviewBtn {
+  position: fixed;
+  margin-top: -240px;
+}
