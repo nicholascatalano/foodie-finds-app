@@ -64,6 +64,9 @@ aside {
 .homepage-container {
   text-align: center;
   padding: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .homepage-title {
   color: #ff7f50;
