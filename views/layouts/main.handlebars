@@ -6,30 +6,26 @@
     <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
-    <div class='homepage-container'>
-      <header id='navbar'>
-        <h1 class='homepage-title'>Foodie Finds</h1>
-
+            <header id='navbar'>
+      <div class="nav-left">
         <ul class='nav-list'>
           <li class='nav-item'><a href='/' class='nav-link'>Home</a></li>
           <li class='nav-item'><a href='/aboutus' class='nav-link'>About Us</a></li>
-          <li class='nav-item'><a
-              href='/dashboard'
-              class='nav-link'
-            >Dashboard</a></li>
-          {{#if loggedIn}}
-            <li class='nav-item'><a
-                href='#'
-                class='nav-link logout-button'
-                id='logout'
-              >Logout</a></li>
-          {{else}}
-            <li class='nav-item'><a
-                href='/login'
-                class='nav-link'
-              >Login</a></li>
-          {{/if}}
+          <li class='nav-item'><a href='/dashboard' class='nav-link'>Dashboard</a></li>
         </ul>
+      </div>
+
+      <div class="nav-middle">
+        <h1 class='homepage-title'>Foodie Finds</h1>
+      </div>
+
+      <div class="nav-right">
+        {{#if loggedIn}}
+          <a href='#' class='nav-link logout-button' id='logout'>Logout</a>
+        {{else}}
+          <a href='/login' class='nav-link'>Login</a>
+        {{/if}}
+      </div>
       </header>
     </div>
     <main>

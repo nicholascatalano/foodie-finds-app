@@ -20,6 +20,7 @@ aside {
 .login-title {
   text-align: center;
   color: #ff7f50;
+  text-shadow: 2px 2px 4px #000000;
 }
 .form-group {
   margin-bottom: 15px;
@@ -71,6 +72,7 @@ aside {
 .homepage-title {
   color: #ff7f50;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #000000;
 }
 .nav-list {
   list-style: none;
@@ -121,6 +123,7 @@ aside {
 .signup-title {
   text-align: center;
   color: #ff7f50;
+  text-shadow: 2px 2px 4px #000000;
 }
 .login-link {
   text-align: center;
@@ -216,6 +219,7 @@ body {
   text-align: center;
   color: #ff7f50;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px #000000;
 }
 .new-review-form {
   display: flex;
@@ -253,6 +257,7 @@ body {
   margin-bottom: 0;
   flex-grow: 1;
   text-align: left;
+  text-shadow: 2px 2px 4px #000000;
 }
 .user-reviews-container {
   text-align: center;
@@ -407,6 +412,7 @@ body {
 .reviews-title {
   color: #ff7f50;
   margin-bottom: 10px;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 .create-new-button {
@@ -455,4 +461,45 @@ body {
   top: 0;
   left: 10px;
   padding-top: 5px;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+.nav-left {
+  flex-grow: 1;
+}
+
+.nav-middle {
+  flex: 0 1 auto;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-right {
+  flex-grow: 1;
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .nav-link,
+  .logout-button {
+    font-size: 12px;
+    padding: 5px 10px;
+  }
+
+  .homepage-title {
+    font-size: 18px;
+    padding-left: 20px;
+  }
+
+  .nav-item {
+    margin-right: 10px;
+  }
 }
