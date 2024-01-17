@@ -2,9 +2,9 @@
   {
     "city": "New York",
     "restaurant": "Pastis",
-    "rating": 4.3,
-    "content": "Best kosher cafe in queens! I came for my niece birthday. The food was so delicious. Get the penne alla vodka!!!!  David assisted me in helping me choose an amazing dessert for the occasion. My family and I enjoyed very much and recommend this place to anyone who wants to come. Thank you elite cafe for a great experience.",
-    "user_id": 2,
+    "rating": 4.7,
+    "content": "Amazing option for French/American food in NYC. I had escargot for the first time here, it was so delicious!",
+    "user_id": 1,
     "restaurant_id": 1
   },
   {
@@ -30,5 +30,37 @@
     "content": "The foods kinda good and we like their environment. They have two separate places like loud and quiet places that we can choose. Also, the service is good and we are definitely back.",
     "user_id": 1,
     "restaurant_id": 3
+  },
+  {
+    "city": "Houston",
+    "restaurant": "Cafe Piquet",
+    "rating": 4.2,
+    "content": "Atmosphere is a vibe. Good playlist.  Nice inside and outside. Our server was attentive and kind. The food was excellent with good prices.",
+    "user_id": 5,
+    "restaurant_id": 5
+  },
+  {
+    "city": "Edmonton",
+    "restaurant": "Reinette Cafe and Patisserie Ltd",
+    "rating": 4.3,
+    "content": "Reinette is a tiny little cafe off the beaten path in Millwoods in Edmonton. I have read many of the reviews here and it seems to be a dearly beloved community cafe.",
+    "user_id": 4,
+    "restaurant_id": 6
+  },
+  {
+    "city": "Cincinnati",
+    "restaurant": "Prime Cincinnati",
+    "rating": 4.5,
+    "content": "Best steak in Cincinnati, a modern twist in an old steak house concept!",
+    "user_id": 5,
+    "restaurant_id": 7
+  },
+  {
+    "city": "Omaha",
+    "restaurant": "Burger Theory Omaha",
+    "rating": 4.5,
+    "content": "Best steak in Cincinnati, a modern twist in an old steak house concept!",
+    "user_id": 2,
+    "restaurant_id": 8
   }
 ]

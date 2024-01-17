@@ -30,5 +30,37 @@
     "price_level": "$",
     "cuisine": "american,diner",
     "sub_categories": "sit_down"
+  },
+  {
+    "location_id": "445953",
+    "name": "Cafe Piquet",
+    "city": "Houston",
+    "price_level": "$$ - $$$",
+    "cuisine": "latin,cuban,caribbean",
+    "sub_categories": "sit_down"
+  },
+  {
+    "location_id": "10480891",
+    "name": "Reinette Cafe and Patisserie Ltd",
+    "city": "Edmonton",
+    "price_level": "$$ - $$$",
+    "cuisine": "cafe,french,european,canadian",
+    "sub_categories": ""
+  },
+  {
+    "location_id": "5988404",
+    "name": "Prime Cincinnati",
+    "city": "Cincinnati",
+    "price_level": "$$$$",
+    "cuisine": "american,steakhouse",
+    "sub_categories": "sit_down"
+  },
+  {
+    "location_id": "7794024",
+    "name": "Burger Theory Omaha",
+    "city": "Omaha",
+    "price_level": "$$ - $$$",
+    "cuisine": "american,bar",
+    "sub_categories": "sit_down"
   }
 ]
