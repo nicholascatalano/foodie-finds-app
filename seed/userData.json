@@ -1,14 +1,22 @@
 [
   {
-    "username": "Sal",
+    "username": "NickCatalano",
     "password": "password12345"
   },
   {
-    "username": "Lernantino",
+    "username": "BrandonOrellana",
     "password": "password12345"
   },
   {
-    "username": "Amiko",
+    "username": "YuliyaTsoy",
+    "password": "password12345"
+  },
+  {
+    "username": "BeatrizBravo",
+    "password": "password12345"
+  },
+  {
+    "username": "HongboWu",
     "password": "password12345"
   }
 ]
