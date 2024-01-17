@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Op } = require('sequelize');
 const sequelize = require('../config/connection');
-const { Restaurant, Review } = require('../models');
+const { User, Restaurant, Review } = require('../models');
 
 //GET restaurants which match the applied filters by user -> end point api/restaurants/filter/restaurants/by
 router.get('/?', async (req, res) => {
@@ -68,7 +68,7 @@ router.get('/?', async (req, res) => {
           typeProperty,
         ],
       },
-      include: [{ model: Review }],
+      include: [{ model: User, through: Review }],
     });
 
     const restaurants = filteredRestaurants.map((rest) =>
@@ -79,7 +79,6 @@ router.get('/?', async (req, res) => {
     res.status(200).render('filter', {
       layout: 'main',
       restaurants,
-      // reviews,
       loggedIn: req.session.loggedIn,
     });
     // res.status(200).json(req.query);
