@@ -19,14 +19,56 @@
   - [How-to-contribute](#how-to-contribute)
   
   ## Installation
-  N/A
-  
+  if you would like to run this app on your own code space. 
+  Make sure to have node installed.
+
+  Install the npm packages by running the following command 
+
+  ```bash
+  npm i
+  ```
+
   ## Usage
   User can search for reviews in the database by navigating on the homepage or applying any filters. See below for a demonstration
 
   User can add their own review by hitting the 'create new review' button. If the user is not logged in, they will be prompt to do so. The user is able to create an account and stay logged in for the duration of the session
 
   ![screenrecording](./assets/ScreenRecording.gif)  
+
+  if you are running this app on your own code space:
+
+  
+  To create database:
+
+  ```bash
+  $ mysql -u root -p
+  ```
+
+  Then enter MySQL credentials and then run the schema file as shown below
+
+  ```bash
+  mysql> SOURCE schema.sql
+  ``` 
+
+  Create a .env file with the variables shown in the example file (.env.EXAMPLE). Make sure the new .env file is in your .gitignore file, since it will contain your MySQL password
+
+  Before starting the server, the database needs to be seeded by:
+
+  ```javascript
+  $ node seed/seed.js
+  ```
+
+  Start the server by:
+
+  ```javascript
+  $ npm start
+  ```
+
+  or you can run the server on developer mode by:
+
+  ```javascript
+  $ npm run dev
+  ```
   
   ## Credits
   External API used: https://tripadvisor-content-api.readme.io/reference/overview
