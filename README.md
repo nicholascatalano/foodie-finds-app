@@ -54,13 +54,13 @@
 
   Before starting the server, the database needs to be seeded by:
 
-  ```javascript
+  ```bash
   $ node seed/seed.js
   ```
 
   Start the server by:
 
-  ```javascript
+  ```bash
   $ npm start
   ```
 
